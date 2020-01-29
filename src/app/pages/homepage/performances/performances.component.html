@@ -1,1 +1,4 @@
-<app-shows-list></app-shows-list>
+<button (click)="openshowsList()">Nos Shows</button>
+<button (click)="openArtistsList()">Nos Artistes</button>
+<app-shows-list *ngIf="showsList"></app-shows-list>
+<app-artists-list *ngIf="artistsList"></app-artists-list>

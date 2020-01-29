@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerformancesComponent implements OnInit {
 
+  artistsList = false;
+  showsList = true;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  openArtistsList() {
+    this.artistsList = true;
+    this.showsList = false;
+  }
+
+  openshowsList() {
+    this.showsList = true;
+    this.artistsList = false;
+  }
+
 
 }

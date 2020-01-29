@@ -1,0 +1,11 @@
+<div *ngIf="place">
+    <h1>{{place.city}}</h1>
+    <h2>du {{place.beginDate}}</h2>
+    <h2>au {{place.endDate}}</h2>
+    <div *ngIf="place.representations">
+        <h3>Tous les jours à : </h3>
+        <div *ngFor="let representation of place.representations">
+            <h3>{{representation.beginHour}}h</h3>
+        </div>
+    </div>
+</div>

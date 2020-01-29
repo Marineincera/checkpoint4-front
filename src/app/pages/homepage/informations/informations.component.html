@@ -1,1 +1,6 @@
-<p>informations works!</p>
+<button (click)="openAgenda()">Agenda</button>
+<button (click)="openPrices()">Prix</button>
+<button (click)="openContact()">Contact</button>
+<app-agenda *ngIf="agendaDisplay"></app-agenda>
+<app-prices *ngIf="priceDisplay"></app-prices>
+<app-contact *ngIf="contactDisplay"></app-contact>

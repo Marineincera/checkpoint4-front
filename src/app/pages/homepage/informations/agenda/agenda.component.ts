@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlaceService } from '../../../../shared/services/place.service';
+import { Place } from '../../../../shared/models/place';
 
 @Component({
   selector: 'app-agenda',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private placesService: PlaceService) { }
+
+  places: Place[];
 
   ngOnInit() {
+    this.getAllPlaces();
+
+  }
+
+  getAllPlaces() {
+    this.placesService.getAllPlaces().subscribe((data: Place[]) => {
+      this.places = data;
+    });
   }
 
 }

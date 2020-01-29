@@ -17,6 +17,8 @@ import { ContactComponent } from './pages/homepage/informations/contact/contact.
 import { LocationComponent } from './pages/homepage/informations/location/location.component';
 import { ShowComponent } from './pages/show/show.component';
 import { PerformanceComponent } from './components/performance/performance.component';
+import { HomepageComponent } from './pages/homepage/homepage/homepage.component';
+import { PlaceComponent } from './components/place/place.component';
 
 
 @NgModule({
@@ -33,6 +35,9 @@ import { PerformanceComponent } from './components/performance/performance.compo
     LocationComponent,
     ShowComponent,
     PerformanceComponent,
+    HomepageComponent,
+    PlaceComponent,
+
 
   ],
   imports: [
