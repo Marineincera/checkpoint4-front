@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,7 @@ import { PricesComponent } from './pages/homepage/informations/prices/prices.com
 import { ContactComponent } from './pages/homepage/informations/contact/contact.component';
 import { LocationComponent } from './pages/homepage/informations/location/location.component';
 import { ShowComponent } from './pages/show/show.component';
+import { PerformanceComponent } from './components/performance/performance.component';
 
 
 @NgModule({
@@ -29,12 +32,14 @@ import { ShowComponent } from './pages/show/show.component';
     ContactComponent,
     LocationComponent,
     ShowComponent,
+    PerformanceComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
