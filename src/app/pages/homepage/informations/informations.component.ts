@@ -30,8 +30,8 @@ export class InformationsComponent implements OnInit {
   }
 
   openContact() {
-    this.agendaDisplay = true;
-    this.contactDisplay = false;
+    this.agendaDisplay = false;
+    this.contactDisplay = true;
     this.priceDisplay = false;
   }
 }

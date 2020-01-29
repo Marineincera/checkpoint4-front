@@ -19,7 +19,7 @@ import { ShowComponent } from './pages/show/show.component';
 import { PerformanceComponent } from './components/performance/performance.component';
 import { HomepageComponent } from './pages/homepage/homepage/homepage.component';
 import { PlaceComponent } from './components/place/place.component';
-
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -45,6 +45,8 @@ import { PlaceComponent } from './components/place/place.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatTableModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

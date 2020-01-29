@@ -1,1 +1,7 @@
-<p>prices works!</p>
+<div *ngFor="let price of prices">
+    <p>{{price.amount}}</p>
+    <p *ngIf="price.week">Semaine</p>
+    <p *ngIf="price.weekEnd"> Week-End</p>
+    <p *ngIf="price.categoriePrice">{{price.categoriePrice.name}}</p>
+</div>
+<div></div>
