@@ -36,7 +36,8 @@ import { AuthentificationComponent } from './components/authentification/authent
 import { InscriptionComponent } from './components/authentification/inscription/inscription.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConnexionComponent } from './components/authentification/connexion/connexion.component';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './core/header.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,9 +80,16 @@ import { ConnexionComponent } from './components/authentification/connexion/conn
     MatDialogModule,
     MatIconModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     DialogComponent,
