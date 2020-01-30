@@ -1,7 +1,20 @@
-<div *ngFor="let price of prices">
-    <p>{{price.amount}}</p>
-    <p *ngIf="price.week">Semaine</p>
-    <p *ngIf="price.weekEnd"> Week-End</p>
-    <p *ngIf="price.categoriePrice">{{price.categoriePrice.name}}</p>
-</div>
-<div></div>
+<section>
+    <table class="pricestable">
+        <thead>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col" *ngFor="let category of categories">{{category.name}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="weekPrices">
+                <th scope="row"> En semaine</th>
+                <td *ngFor="let week of weekPrices">{{week.amount}}</td>
+            </tr>
+            <tr>
+                <th scope="row">week-end et mercredi </th>
+                <td *ngFor="let day of weekendPrices">{{day.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

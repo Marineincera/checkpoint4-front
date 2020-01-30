@@ -1,6 +1,9 @@
-<button (click)="openshowsList()">Nos Shows</button>
-<button (click)="openArtistsList()">Nos Artistes</button>
-<app-shows-list [shows]="shows" *ngIf="showsList"></app-shows-list>
-<app-artists-list [artists]="artists" *ngIf="artistsList"></app-artists-list>
-
-<a routerLink="/creation">Add</a>performance/creation
+<section>
+    <button (click)="openshowsList()">Nos Shows</button>
+    <button (click)="openArtistsList()">Nos Artistes</button>
+    <div class="lists">
+        <app-shows-list [shows]="shows" *ngIf="showsList" class="list"></app-shows-list>
+        <app-artists-list [artists]="artists" *ngIf="artistsList" class="list"></app-artists-list>
+    </div>
+    <a routerLink="/creation">Add</a>
+</section>

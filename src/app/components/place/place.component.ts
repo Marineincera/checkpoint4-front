@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlaceComponent implements OnInit {
 
   @Input() place;
+  representations = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  showRepresentations() {
+    this.representations = !this.representations;
+  }
 }

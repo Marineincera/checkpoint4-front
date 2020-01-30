@@ -15,6 +15,8 @@ export class PricesComponent implements OnInit {
 
   prices: Price[];
   categories: CategoryPrice[];
+  weekPrices = [];
+  weekendPrices = [];
 
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class PricesComponent implements OnInit {
     this.pricesService.getAllPrices().subscribe((data: Price[]) => {
       this.prices = data;
       console.log(this.prices);
+      this.getPricesByPeriod(this.prices);
     });
   }
 
@@ -36,4 +39,23 @@ export class PricesComponent implements OnInit {
 
     });
   }
+
+  getPricesByPeriod(array: Price[]) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].week === true) {
+        this.weekPrices.push(array[i]);
+      }
+      if (array[i].weekEnd === true) {
+        this.weekendPrices.push(array[i]);
+      }
+    }
+    console.log('week');
+
+    console.log(this.weekPrices);
+    console.log(this.weekendPrices);
+
+
+  }
+
+
 }
