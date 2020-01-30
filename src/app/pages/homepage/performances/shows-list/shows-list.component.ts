@@ -3,6 +3,7 @@ import { PerformanceService } from '../../../../shared/services/performance.serv
 import { Performance } from '../../../../shared/models/performance';
 import { CategoryPerformanceService } from '../../../../shared/services/category-performance.service';
 import { CategoryPerformance } from '../../../../shared/models/category-performance';
+import { log } from 'util';
 
 @Component({
   selector: 'app-shows-list',
@@ -14,7 +15,7 @@ export class ShowsListComponent implements OnInit {
   constructor(private performancesService: PerformanceService, private categoryPerformanceService: CategoryPerformanceService) { }
 
   performances: Performance[];
-  shows: Performance[];
+  shows = [];
 
   ngOnInit() {
     this.getPerformances();
@@ -24,21 +25,18 @@ export class ShowsListComponent implements OnInit {
   getPerformances() {
     this.performancesService.getAllPerformance().subscribe((data: Performance[]) => {
       this.performances = data;
-      this.getShows(data);
+      this.getShows(this.performances);
+
     });
   }
 
   getShows(array) {
     for (let i = 0; i < array.length; i++) {
-      if (array[i].categoryPerformanceId === 1) {
+      if (array[i].categoryPerformance.id === 1) {
         this.shows.push(array[i]);
       }
     }
-    this.performances = array;
-    console.log(this.performances);
+
   }
-
-
-
 
 }
