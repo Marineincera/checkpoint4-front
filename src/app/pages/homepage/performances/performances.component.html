@@ -1,6 +1,8 @@
 <section>
-    <button (click)="openshowsList()">Nos Shows</button>
-    <button (click)="openArtistsList()">Nos Artistes</button>
+    <div class="buttons">
+        <button (click)="openshowsList()">Nos Shows</button>
+        <button (click)="openArtistsList()">Nos Artistes</button>
+    </div>
     <div class="lists">
         <app-shows-list [shows]="shows" *ngIf="showsList" class="list"></app-shows-list>
         <app-artists-list [artists]="artists" *ngIf="artistsList" class="list"></app-artists-list>

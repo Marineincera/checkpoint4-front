@@ -1,8 +1,9 @@
 export class User {
-    id: number;
-    pseudo: string;
+    id?: number;
+    pseudo?: string;
     email: string;
-    userRoleId: number;
+    userRoleId?: number;
+    password?: string;
 
     constructor(user: User) {
         Object.assign(user, this);

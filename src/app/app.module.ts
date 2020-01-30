@@ -30,7 +30,11 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { PlaceDetailsComponent } from './pages/place-details/place-details.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { AuthentificationComponent } from './components/authentification/authentification.component';
+import { InscriptionComponent } from './components/authentification/inscription/inscription.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,9 @@ import { PlaceDetailsComponent } from './pages/place-details/place-details.compo
     CreationPerfComponent,
     DialogComponent,
     PlaceDetailsComponent,
+    WelcomeComponent,
+    AuthentificationComponent,
+    InscriptionComponent,
 
 
 
@@ -68,12 +75,15 @@ import { PlaceDetailsComponent } from './pages/place-details/place-details.compo
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    AuthentificationComponent
   ]
 
 })
