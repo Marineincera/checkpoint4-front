@@ -62,7 +62,7 @@ export class PerfsDetailsComponent implements OnInit {
     this.typeNewPerf = id;
   }
 
-  onSubmit() {
+  updatePlace() {
     this.perfToUpdate = {
       name: this.performanceUpdateForm.value.name,
       description: this.performanceUpdateForm.value.description,
