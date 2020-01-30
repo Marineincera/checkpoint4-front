@@ -21,6 +21,8 @@ import { HomepageComponent } from './pages/homepage/homepage/homepage.component'
 import { PlaceComponent } from './components/place/place.component';
 import { MatTableModule } from '@angular/material/table';
 import { PerfsDetailsComponent } from './pages/perfs/perfs-details/perfs-details.component';
+import { CreationPerfComponent } from './pages/perfs/creation-perf/creation-perf.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { PerfsDetailsComponent } from './pages/perfs/perfs-details/perfs-details
     HomepageComponent,
     PlaceComponent,
     PerfsDetailsComponent,
+    CreationPerfComponent,
+
 
 
   ],
@@ -48,7 +52,8 @@ import { PerfsDetailsComponent } from './pages/perfs/perfs-details/perfs-details
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
-
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

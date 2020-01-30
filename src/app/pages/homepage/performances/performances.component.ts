@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-performances',
@@ -10,7 +11,7 @@ export class PerformancesComponent implements OnInit {
   artistsList = false;
   showsList = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class PerformancesComponent implements OnInit {
     this.showsList = true;
     this.artistsList = false;
   }
+
 
 
 }

@@ -1,0 +1,50 @@
+<section>
+    <div>
+        <img src="" alt="">
+    </div>
+
+    <div>
+        <form [formGroup]="performanceCreationForm" (ngSubmit)="onSubmit()" class="perf-creation-form">
+
+            <div class="form-cases">
+                <input placeholder="Nom de la Perf" type="text" formControlName="name">
+            </div>
+            <div
+                *ngIf="performanceCreationForm.controls['name'].errors && performanceCreationForm.controls['name'].touched">
+                <div [hidden]="!performanceCreationForm.controls['name'].errors.required" class="error">Le nom
+                    est
+                    obligatoire
+                </div>
+            </div>
+
+            <div class="form-cases">
+                <input placeholder="Description" type="text" formControlName="description">
+            </div>
+            <div *ngIf="performanceCreationForm.get('description').errors && performanceCreationForm.get('description').touched "
+                class="error-msg">
+                <div [hidden]="!performanceCreationForm.get('description').errors.required" class="error">Une
+                    description est obligatoire
+                </div>
+            </div>
+
+            <div class="form-cases">
+                <input placeholder="Url de l'image" type="text" formControlName="picture">
+            </div>
+            <div *ngIf="performanceCreationForm.get('picture').errors && performanceCreationForm.get('picture').touched "
+                class="error-msg">
+                <div [hidden]="!performanceCreationForm.get('picture').errors.required" class="error">L'image est
+                    obligatoire
+                </div>
+            </div>
+
+
+
+
+            <button type="submit" class="valid-button" [disabled]="!performanceCreationForm.valid">
+                Créer
+            </button>
+        </form>
+    </div>
+
+
+</section>
