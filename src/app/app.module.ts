@@ -26,6 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { MatInputModule } from '@angular/material/input';
     PlaceComponent,
     PerfsDetailsComponent,
     CreationPerfComponent,
+    DialogComponent,
 
 
 
@@ -61,8 +64,13 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogComponent
+  ]
+
 })
 export class AppModule { }

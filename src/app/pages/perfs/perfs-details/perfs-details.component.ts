@@ -6,6 +6,9 @@ import { Performance } from '../../../shared/models/performance';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CategoryPerformance } from '../../../shared/models/category-performance';
 import { CategoryPerformanceService } from '../../../shared/services/category-performance.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../../components/dialog/dialog.component';
+
 
 @Component({
   selector: 'app-perfs-details',
@@ -18,7 +21,8 @@ export class PerfsDetailsComponent implements OnInit {
     private router: Router,
     private service: PerformanceService,
     private fb: FormBuilder,
-    private categoryPerf: CategoryPerformanceService) { }
+    private categoryPerf: CategoryPerformanceService,
+    public dialog: MatDialog) { }
 
 
   performanceToReceive: any;
@@ -35,19 +39,21 @@ export class PerfsDetailsComponent implements OnInit {
   });
 
   ngOnInit() {
+    // Get ID of the selected performance
     const id = this.route.snapshot.paramMap.get('id');
     this.performanceToReceive = this.service.getOnePerformance(parseInt(id)).subscribe((data: Performance) => {
       this.performanceToDisplay = data;
       console.log(this.performanceToDisplay);
     });
 
+    // Get categories
     this.categoryPerf.getAllCategoryPerformance().subscribe((data: CategoryPerformance[]) => {
       this.typesOfPerf = data;
       this.categoryPerf.categoriesPerformances = this.typesOfPerf;
     });
   }
 
-
+  // UPDATE
   openUpdateForm() {
     this.updateopen = !this.updateopen;
   }
@@ -66,6 +72,24 @@ export class PerfsDetailsComponent implements OnInit {
     this.service.update(this.performanceToDisplay.id, this.perfToUpdate).subscribe((data) => {
       console.log(data);
 
+    });
+  }
+
+
+
+  // Delete
+
+  deletePerf(id: number) {
+    this.openDialog(id);
+  }
+
+  openDialog(id) {
+    const dialogRef = this.dialog.open(DialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.service.delete(id).subscribe();
+      }
     });
   }
 
