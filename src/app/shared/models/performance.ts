@@ -6,7 +6,7 @@ export class Performance {
     name: string;
     picture: string;
     description: string;
-    categoryPerformanceId?: number;
+    categoryPerformance?: number;
     users?: User[];
     messages?: Message[];
 

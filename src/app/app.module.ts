@@ -23,6 +23,8 @@ import { MatTableModule } from '@angular/material/table';
 import { PerfsDetailsComponent } from './pages/perfs/perfs-details/perfs-details.component';
 import { CreationPerfComponent } from './pages/perfs/creation-perf/creation-perf.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatTableModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

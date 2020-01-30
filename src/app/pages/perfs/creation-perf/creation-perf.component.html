@@ -37,7 +37,19 @@
                 </div>
             </div>
 
+            <mat-form-field>
 
+                <mat-label *ngIf="typesOfPerf">select</mat-label>
+
+                <mat-select>
+
+                    <mat-option *ngFor="let type of typesOfPerf" [value]="type.name" (click)="typeSelected(type.id)">
+                        {{type.name}}
+                    </mat-option>
+
+                </mat-select>
+
+            </mat-form-field>
 
 
             <button type="submit" class="valid-button" [disabled]="!performanceCreationForm.valid">
