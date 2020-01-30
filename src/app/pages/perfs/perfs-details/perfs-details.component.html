@@ -1,10 +1,10 @@
-<section>
+<section *ngIf="performanceToDisplay">
     <div class="header">
         <h1>Création</h1>
     </div>
 
 
-    <div *ngIf="performanceToDisplay" class="containt">
+    <div class="containt">
 
         <div>
             <h1>{{performanceToDisplay.name}}</h1>
@@ -12,6 +12,54 @@
         </div>
         <img src="{{performanceToDisplay.picture}}" alt="">
 
+        <button (click)="openUpdateForm()">Modifier cette performance</button>
+
+    </div>
+
+    <div class="updateForm" *ngIf="updateopen">
+        <form [formGroup]="performanceUpdateForm" (ngSubmit)="onSubmit()" class="perf-creation-form">
+
+            <div class="form-cases">
+                <mat-form-field>
+                    <input matInput placeholder="{{performanceToDisplay.name}}" type="text" formControlName="name">
+                </mat-form-field>
+            </div>
+
+
+            <div class="form-cases">
+                <mat-form-field>
+                    <input matInput placeholder="{{performanceToDisplay.description}}" type="text"
+                        formControlName="description">
+                </mat-form-field>
+            </div>
+
+
+            <div class="form-cases">
+                <mat-form-field>
+                    <input matInput placeholder="{{performanceToDisplay.picture}}" type="text"
+                        formControlName="picture">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field>
+
+                <mat-label *ngIf="typesOfPerf">select</mat-label>
+
+                <mat-select>
+
+                    <mat-option *ngFor="let type of typesOfPerf" [value]="type.name" (click)="typeSelected(type.id)">
+                        {{type.name}}
+                    </mat-option>
+
+                </mat-select>
+
+            </mat-form-field>
+
+
+            <button type="submit" class="valid-button">
+                Modifier
+            </button>
+        </form>
     </div>
 
 </section>

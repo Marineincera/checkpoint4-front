@@ -29,8 +29,7 @@ export class CreationPerfComponent implements OnInit {
   ngOnInit() {
     this.categoryPerf.getAllCategoryPerformance().subscribe((data: CategoryPerformance[]) => {
       this.typesOfPerf = data;
-      console.log(this.typesOfPerf);
-
+      this.categoryPerf.categoriesPerformances = this.typesOfPerf;
     });
   }
 

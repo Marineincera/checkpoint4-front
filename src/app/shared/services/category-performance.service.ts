@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { WshelperService } from './wshelper.service';
+import { CategoryPerformance } from '../models/category-performance';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CategoryPerformanceService {
 
   constructor(private wsh: WshelperService) { }
 
-
+  categoriesPerformances: CategoryPerformance[];
 
   getAllCategoryPerformance() {
     return this.wsh.get(CategoryPerformanceService.URL);
