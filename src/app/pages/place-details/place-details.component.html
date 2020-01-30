@@ -1,0 +1,19 @@
+<div *ngIf="placeToDisplay" class="placeToDisplay">
+    <h1>{{placeToDisplay.city}}</h1>
+    <h2>du {{placeToDisplay.beginDate}}</h2>
+    <h2>au {{placeToDisplay.endDate}}</h2>
+
+    <h2 class="button" (click)="showRepresentations()">Heures de représentations</h2>
+    <div [hidden]="!representations">
+        <div *ngIf="placeToDisplay.representations" class="representations">
+            <h3>Tous les jours à : </h3>
+            <div *ngFor="let representation of placeToDisplay.representations">
+                <h3>{{representation.beginHour}}h</h3>
+            </div>
+        </div>
+    </div>
+    <div class="icons">
+        <i class="material-icons"> edit</i>
+        <i class="material-icons">delete</i>
+    </div>
+</div>

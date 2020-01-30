@@ -6,7 +6,7 @@ import { WshelperService } from './wshelper.service';
 })
 export class PlaceService {
 
-  static URL = 'http://localhost:3000/places';
+  static URL = 'http://localhost:3000/places/';
 
   constructor(private wsh: WshelperService) { }
 

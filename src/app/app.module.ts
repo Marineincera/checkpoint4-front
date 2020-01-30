@@ -28,6 +28,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { PlaceDetailsComponent } from './pages/place-details/place-details.component';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     PerfsDetailsComponent,
     CreationPerfComponent,
     DialogComponent,
+    PlaceDetailsComponent,
 
 
 
@@ -64,7 +67,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
