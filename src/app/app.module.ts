@@ -35,6 +35,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { AuthentificationComponent } from './components/authentification/authentification.component';
 import { InscriptionComponent } from './components/authentification/inscription/inscription.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConnexionComponent } from './components/authentification/connexion/connexion.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     WelcomeComponent,
     AuthentificationComponent,
     InscriptionComponent,
+    ConnexionComponent,
 
 
 

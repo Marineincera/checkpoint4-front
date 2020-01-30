@@ -27,14 +27,12 @@
             <div [hidden]="userForm.get('password').errors.invalid" class="error">Le mot de passe doit contenir au
                 moins une
                 majuscule</div>
-            <!-- <div [hidden]="!userForm.get('password').errors.required" class="error">Un mot de passe est obligatoire
-                    pour
-                    s'inscrire</div> -->
+
         </div>
 
 
         <button type="submit" class="valid-button" [disabled]="!userForm.valid">
-
+            s'inscrire
         </button>
     </form>
 
