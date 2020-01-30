@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryPerformanceService } from '../../../shared/services/category-performance.service';
 import { PerformanceService } from '../../../shared/services/performance.service';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-performances',
@@ -15,11 +16,16 @@ export class PerformancesComponent implements OnInit {
   performances: Performance[];
   shows = [];
   artists = [];
+  conenctedUserRole;
 
-  constructor(private router: Router, private performancesService: PerformanceService, private categoryPerformanceService: CategoryPerformanceService) { }
+  constructor(private router: Router,
+    private performancesService: PerformanceService,
+    private categoryPerformanceService: CategoryPerformanceService,
+    private userService: UserService) { }
 
   ngOnInit() {
     this.getPerformances();
+
   }
 
   openArtistsList() {
@@ -50,5 +56,7 @@ export class PerformancesComponent implements OnInit {
     }
 
   }
+
+
 
 }

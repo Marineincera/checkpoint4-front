@@ -27,6 +27,11 @@ export class IntroductionComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getMe().subscribe((data) => {
+      console.log('data');
+      console.log(data);
+
+    });
   }
 
 
@@ -52,10 +57,11 @@ export class IntroductionComponent implements OnInit {
 
   tryToConnectUser(user: User) {
     this.userService.connexion(user.email, user.password).subscribe((data) => {
-      this.connectedUser = data;
+      // this.userService.connectedUser = data;
+      // this.userService.connectedUserRole = data.userRole;
+      // console.log(this.userService.connectedUserRole);
       console.log('connected user : ');
-      console.log(this.connectedUser);
-      this.userService.connectedUser = this.connectedUser;
+      console.log(this.userService.connectedUser);
     });
   }
 

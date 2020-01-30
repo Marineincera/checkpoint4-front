@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { WshelperService } from './wshelper.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { User } from '../models/user';
+import { UserRole } from '../models/user-role';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,9 @@ export class UserService {
   static URL = 'http://localhost:3000/';
 
   connectedUser: User;
+  connectedUserRole: UserRole;
+
+  userPower = ['admin'];
 
   constructor(private http: HttpClient, private wsh: WshelperService) { }
 
@@ -52,4 +56,13 @@ export class UserService {
     return this.http.post(UserService.URL + 'auth/signup', { pseudo, email, password });
   }
 
+
+  // recuperation du user grâce au token et stokage dans le service
+  public getMe() {
+    return this.http.get(UserService.URL + 'users/me').pipe(tap((user: User) => this.connectedUser = user));
+  }
+
+  public isLogged() {
+    return this.getMe().pipe(map((user: User) => (user != null)));
+  }
 }
