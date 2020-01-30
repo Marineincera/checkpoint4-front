@@ -1,8 +1,17 @@
-<div *ngIf="performanceToDisplay">
-    <img src="{{performanceToDisplay.picture}}" alt="">
-    <div>
-        <h1>{{performanceToDisplay.name}}</h1>
-        <p>{{performanceToDisplay.description}}</p>
+<section>
+    <div class="header">
+        <h1>Création</h1>
     </div>
 
-</div>
+
+    <div *ngIf="performanceToDisplay" class="containt">
+
+        <div>
+            <h1>{{performanceToDisplay.name}}</h1>
+            <p>{{performanceToDisplay.description}}</p>
+        </div>
+        <img src="{{performanceToDisplay.picture}}" alt="">
+
+    </div>
+
+</section>
