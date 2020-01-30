@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoryPerformanceService } from '../../../shared/services/category-performance.service';
+import { PerformanceService } from '../../../shared/services/performance.service';
 
 @Component({
   selector: 'app-performances',
@@ -10,10 +12,14 @@ export class PerformancesComponent implements OnInit {
 
   artistsList = false;
   showsList = true;
+  performances: Performance[];
+  shows = [];
+  artists = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private performancesService: PerformanceService, private categoryPerformanceService: CategoryPerformanceService) { }
 
   ngOnInit() {
+    this.getPerformances();
   }
 
   openArtistsList() {
@@ -26,6 +32,23 @@ export class PerformancesComponent implements OnInit {
     this.artistsList = false;
   }
 
+  getPerformances() {
+    this.performancesService.getAllPerformance().subscribe((data: Performance[]) => {
+      this.performances = data;
+      this.getShows(this.performances);
 
+    });
+  }
+
+  getShows(array) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].categoryPerformance.id === 1) {
+        this.shows.push(array[i]);
+      } else {
+        this.artists.push(array[i]);
+      }
+    }
+
+  }
 
 }

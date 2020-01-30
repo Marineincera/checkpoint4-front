@@ -1,1 +1,3 @@
-<p>artists-list works!</p>
+<div *ngFor="let artist of artists">
+    <app-performance [perf]="artist"></app-performance>
+</div>
