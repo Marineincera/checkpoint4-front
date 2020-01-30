@@ -1,0 +1,59 @@
+.header{
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    height: 20vh;
+    background-image: url('https://c-parity.com/wp-content/uploads/2017/12/4k-animation-futuristic-technological-abstract-motion-background-loop_4ktdymmt__F0000.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    align-items: center;
+}
+
+.form{
+    margin-top: 20vh;
+}
+
+
+h1{
+    color: white;
+}
+
+//form
+
+// form{
+//     display: flex;
+//     flex-direction: column;
+//     margin-top: -15px;
+// }
+
+.form-cases{
+    margin-top: 5px;
+}
+
+
+// .buttons{
+//     display: flex;
+// }
+
+
+// p{
+//     margin: 2px;
+//     text-align: center;
+//     font-family: 'Regular', 'Lato';
+//     font-size: 14px;
+
+// }
+
+// .error{
+//     color: #FF6969;
+
+//     }
