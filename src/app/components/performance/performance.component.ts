@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-performance',
@@ -9,9 +10,15 @@ export class PerformanceComponent implements OnInit {
 
   @Input() perf: Performance;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+
+  goToPerformanceDetails(id: number) {
+    const link = '../performance/' + id.toString();
+    this.router.navigate([link]);
   }
 
 }
