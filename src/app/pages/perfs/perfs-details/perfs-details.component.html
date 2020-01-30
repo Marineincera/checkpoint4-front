@@ -18,7 +18,7 @@
     </div>
 
     <div class="updateForm" *ngIf="updateopen">
-        <form [formGroup]="performanceUpdateForm" (ngSubmit)="onSubmit()" class="perf-creation-form">
+        <form [formGroup]="performanceUpdateForm" (ngSubmit)="updatePlace()" class="perf-creation-form">
 
             <div class="form-cases">
                 <mat-form-field>

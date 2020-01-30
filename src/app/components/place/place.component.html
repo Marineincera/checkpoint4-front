@@ -1,7 +1,7 @@
 <div *ngIf="place" class="place">
     <h1>{{place.city}}</h1>
-    <h2>du {{place.beginDate}}</h2>
-    <h2>au {{place.endDate}}</h2>
+    <h2>du {{place.begin}}</h2>
+    <h2>au {{place.end}}</h2>
 
     <h2 class="button" (click)="showRepresentations()">Heures de représentations</h2>
     <div [hidden]="!representations">
