@@ -20,6 +20,7 @@ import { PerformanceComponent } from './components/performance/performance.compo
 import { HomepageComponent } from './pages/homepage/homepage/homepage.component';
 import { PlaceComponent } from './components/place/place.component';
 import { MatTableModule } from '@angular/material/table';
+import { PerfsDetailsComponent } from './pages/perfs/perfs-details/perfs-details.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatTableModule } from '@angular/material/table';
     PerformanceComponent,
     HomepageComponent,
     PlaceComponent,
+    PerfsDetailsComponent,
 
 
   ],

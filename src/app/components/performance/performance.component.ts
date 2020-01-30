@@ -17,8 +17,7 @@ export class PerformanceComponent implements OnInit {
 
 
   goToPerformanceDetails(id: number) {
-    const link = '../performance/' + id.toString();
-    this.router.navigate([link]);
+    this.router.navigate(['/performance/' + id]);
   }
 
 }
