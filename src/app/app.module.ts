@@ -15,7 +15,7 @@ import { AgendaComponent } from './pages/homepage/informations/agenda/agenda.com
 import { PricesComponent } from './pages/homepage/informations/prices/prices.component';
 import { ContactComponent } from './pages/homepage/informations/contact/contact.component';
 import { LocationComponent } from './pages/homepage/informations/location/location.component';
-import { ShowComponent } from './pages/show/show.component';
+import { PerfsComponent } from './pages/perfs/perfs.component';
 import { PerformanceComponent } from './components/performance/performance.component';
 import { HomepageComponent } from './pages/homepage/homepage/homepage.component';
 import { PlaceComponent } from './components/place/place.component';
@@ -33,7 +33,7 @@ import { MatTableModule } from '@angular/material/table';
     PricesComponent,
     ContactComponent,
     LocationComponent,
-    ShowComponent,
+    PerfsComponent,
     PerformanceComponent,
     HomepageComponent,
     PlaceComponent,
