@@ -44,6 +44,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PlaceDialogComponent } from './pages/place-details/place-dialog/place-dialog.component';
+import { CreationPlaceComponent } from './pages/place-details/creation-place/creation-place.component';
+import { CreationComponent } from './pages/creation/creation.component';
 
 
 @NgModule({
@@ -71,7 +73,10 @@ import { PlaceDialogComponent } from './pages/place-details/place-dialog/place-d
     InscriptionComponent,
     ConnexionComponent,
     NavbarComponent,
-    PlaceDialogComponent
+    PlaceDialogComponent,
+    CreationPlaceComponent,
+    CreationComponent,
+
 
 
 

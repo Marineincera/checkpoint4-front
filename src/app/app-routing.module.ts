@@ -8,6 +8,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { PerformancesComponent } from './pages/homepage/performances/performances.component';
 import { InformationsComponent } from './pages/homepage/informations/informations.component';
 import { IntroductionComponent } from './pages/homepage/introduction/introduction.component';
+import { CreationComponent } from './pages/creation/creation.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
 
   { path: 'performance/:id', component: PerfsComponent },
-  { path: 'creation', component: CreationPerfComponent },
+  { path: 'creation', component: CreationComponent },
   { path: 'places/:id', component: PlaceDetailsComponent },
 
   //

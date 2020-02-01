@@ -1,7 +1,9 @@
+import { Place } from './place';
+
 export class Representation {
-    id: number;
-    begin: number;
-    placeId: number;
+    id?: number;
+    beginHour?: number;
+    place?: number;
 
     constructor(representation: Representation) {
         Object.assign(representation, this);
