@@ -52,8 +52,10 @@ export class UserService {
 
       }));
   }
-  public inscription(pseudo: string, email: string, password: string) {
-    return this.http.post(UserService.URL + 'auth/signup', { pseudo, email, password });
+  public inscription(pseudo: string, email: string, password: string, userRole: number) {
+    console.log('user posted');
+    console.log(userRole);
+    return this.http.post(UserService.URL + 'auth/signup', { pseudo, email, password, userRole });
   }
 
 

@@ -5,6 +5,8 @@ import { UserService } from '../../../shared/services/user.service';
 import { passwordValidator } from '../password-validator';
 import { emailValidator } from '../email-validator';
 import { SnackBarService } from '../../../shared/services/snack-bar.service.ts.service';
+import { UserRoleService } from '../../../shared/services/user-role.service';
+import { UserRole } from '../../../shared/models/user-role';
 
 @Component({
   selector: 'app-inscription',
@@ -19,9 +21,10 @@ export class InscriptionComponent implements OnInit {
     email: ['', [Validators.required, emailValidator]],
   });
   userCreated: User;
+  userRoleToSend: UserRole;
 
 
-  constructor(private fb: FormBuilder, private userService: UserService, private snackbar: SnackBarService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private snackbar: SnackBarService, private roleService: UserRoleService) { }
 
   ngOnInit() {
   }
@@ -33,13 +36,24 @@ export class InscriptionComponent implements OnInit {
       pseudo: this.userForm.value.pseudo,
       password: this.userForm.value.password,
       email: this.userForm.value.email,
-      userRoleId: 4
+      userRole: 2
     };
-    this.userForm.value;
+    console.log(this.userCreated);
+
   }
 
   sendNewUserToBdd(user: User) {
-    this.userService.inscription(user.pseudo, user.email, user.password).subscribe();
+    console.log(user);
+    this.getUserRole(2);
+    this.userService.inscription(user.pseudo, user.email, user.password, user.userRole).subscribe();
+  }
+
+  getUserRole(id) {
+    this.roleService.getOneUserRole(id).subscribe((data: UserRole) => {
+      console.log(data);
+      this.userRoleToSend = data;
+    });
+
   }
 
   clearForm() {
