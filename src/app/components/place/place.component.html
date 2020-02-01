@@ -13,6 +13,6 @@
         </div>
     </div>
     <div class="icons">
-        <i class="material-icons" (click)="goToPlaceDetails(place.id)"> edit</i>
+        <i class="material-icons" *ngIf="admin" (click)="goToPlaceDetails(place.id)"> edit</i>
     </div>
 </div>

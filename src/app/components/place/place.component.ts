@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class PlaceComponent implements OnInit {
 
   @Input() place;
+  @Input() admin;
+
   representations = false;
 
   constructor(private router: Router) { }

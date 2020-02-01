@@ -14,8 +14,8 @@ export class UserService {
 
   connectedUser: User;
   connectedUserRole: UserRole;
+  admin = false;
 
-  userPower = ['admin'];
 
   constructor(private http: HttpClient, private wsh: WshelperService) { }
 

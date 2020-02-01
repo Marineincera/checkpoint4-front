@@ -8,6 +8,7 @@ import { CategoryPerformance } from '../../../shared/models/category-performance
 import { CategoryPerformanceService } from '../../../shared/services/category-performance.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../components/dialog/dialog.component';
+import { UserService } from '../../../shared/services/user.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class PerfsDetailsComponent implements OnInit {
     private service: PerformanceService,
     private fb: FormBuilder,
     private categoryPerf: CategoryPerformanceService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private userService: UserService) { }
 
 
   performanceToReceive: any;
@@ -31,6 +33,7 @@ export class PerfsDetailsComponent implements OnInit {
   typesOfPerf: CategoryPerformance[];
   typeNewPerf: number;
   updateopen = false;
+  admin = false;
 
   performanceUpdateForm = this.fb.group({
     name: ['', [Validators.required]],
@@ -51,6 +54,10 @@ export class PerfsDetailsComponent implements OnInit {
       this.typesOfPerf = data;
       this.categoryPerf.categoriesPerformances = this.typesOfPerf;
     });
+
+    if (this.userService.connectedUser) {
+      this.admin = true;
+    }
   }
 
   // UPDATE

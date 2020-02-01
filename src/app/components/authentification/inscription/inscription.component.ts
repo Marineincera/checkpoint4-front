@@ -21,7 +21,6 @@ export class InscriptionComponent implements OnInit {
     email: ['', [Validators.required, emailValidator]],
   });
   userCreated: User;
-  userRoleToSend: UserRole;
 
 
   constructor(private fb: FormBuilder, private userService: UserService, private snackbar: SnackBarService, private roleService: UserRoleService) { }
@@ -36,25 +35,19 @@ export class InscriptionComponent implements OnInit {
       pseudo: this.userForm.value.pseudo,
       password: this.userForm.value.password,
       email: this.userForm.value.email,
-      userRole: 2
+      userRoleId: 2
     };
     console.log(this.userCreated);
 
   }
 
-  sendNewUserToBdd(user: User) {
+  sendNewUserToBdd(user: any) {
     console.log(user);
-    this.getUserRole(2);
-    this.userService.inscription(user.pseudo, user.email, user.password, user.userRole).subscribe();
+    this.userService.inscription(user.pseudo, user.email, user.password, user.userRoleId).subscribe();
   }
 
-  getUserRole(id) {
-    this.roleService.getOneUserRole(id).subscribe((data: UserRole) => {
-      console.log(data);
-      this.userRoleToSend = data;
-    });
 
-  }
+
 
   clearForm() {
     this.userForm.reset();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthentificationComponent } from '../../../components/authentification/authentification.component';
 import { User } from '../../../shared/models/user';
@@ -23,21 +23,16 @@ export class IntroductionComponent implements OnInit {
   connectedUser: User;
   connexionButton = true;
 
+
+  @Input() admin: boolean;
+
   constructor(public dialog: MatDialog,
     private userService: UserService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('TOKEN')) {
-      console.log('token plein');
-
-      this.userService.getMe().subscribe((data: User) => {
-        console.log('data');
-        console.log(data);
-        this.connectedUser = this.userService.connectedUser;
-      });
+    if (this.userService.connectedUser) {
+      this.connectedUser = this.userService.connectedUser;
     }
-    console.log(this.userService.connectedUser);
-
 
   }
 

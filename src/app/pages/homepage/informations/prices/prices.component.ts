@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PriceService } from '../../../../shared/services/price.service';
 import { Price } from '../../../../shared/models/price';
 import { CategoryPriceService } from '../../../../shared/services/category-price.service';
@@ -18,6 +18,7 @@ export class PricesComponent implements OnInit {
   weekPrices = [];
   weekendPrices = [];
 
+  @Input() admin;
 
   ngOnInit() {
     this.getAllPrices();

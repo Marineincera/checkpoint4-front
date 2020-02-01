@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryPerformanceService } from '../../../shared/services/category-performance.service';
 import { PerformanceService } from '../../../shared/services/performance.service';
@@ -16,8 +16,9 @@ export class PerformancesComponent implements OnInit {
   performances: Performance[];
   shows = [];
   artists = [];
-  conenctedUserRole;
-  admin;
+
+
+  @Input() admin;
 
   constructor(private router: Router,
     private performancesService: PerformanceService,
@@ -26,11 +27,7 @@ export class PerformancesComponent implements OnInit {
 
   ngOnInit() {
     this.getPerformances();
-    if (this.userService.connectedUser) {
-      console.log(this.userService.connectedUser.userRole);
 
-      this.adminOrNot();
-    }
 
   }
 
@@ -64,13 +61,7 @@ export class PerformancesComponent implements OnInit {
 
   }
 
-  adminOrNot() {
-    if (this.userService.connectedUser.userRole === 2) {
-      console.log('choupo');
 
 
-    }
 
-
-  }
 }

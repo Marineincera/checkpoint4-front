@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-informations',
@@ -10,6 +10,8 @@ export class InformationsComponent implements OnInit {
   agendaDisplay = true;
   priceDisplay = false;
   contactDisplay = false;
+
+  @Input() admin;
 
   constructor() { }
 

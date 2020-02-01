@@ -1,6 +1,6 @@
 <button (click)="openAgenda()">Agenda</button>
 <button (click)="openPrices()">Prix</button>
 <button (click)="openContact()">Contact</button>
-<app-agenda *ngIf="agendaDisplay"></app-agenda>
-<app-prices *ngIf="priceDisplay"></app-prices>
-<app-contact *ngIf="contactDisplay"></app-contact>
+<app-agenda *ngIf="agendaDisplay" [admin]="admin"></app-agenda>
+<app-prices *ngIf="priceDisplay" [admin]="admin"></app-prices>
+<app-contact *ngIf="contactDisplay" [admin]="admin"></app-contact>
