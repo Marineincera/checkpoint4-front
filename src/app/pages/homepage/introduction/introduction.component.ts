@@ -27,11 +27,18 @@ export class IntroductionComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getMe().subscribe((data) => {
-      console.log('data');
-      console.log(data);
+    if (localStorage.getItem('TOKEN')) {
+      console.log('token plein');
 
-    });
+      this.userService.getMe().subscribe((data: User) => {
+        console.log('data');
+        console.log(data);
+        this.connectedUser = this.userService.connectedUser;
+      });
+    }
+    console.log(this.userService.connectedUser);
+
+
   }
 
 
@@ -62,6 +69,10 @@ export class IntroductionComponent implements OnInit {
       // console.log(this.userService.connectedUserRole);
       console.log('connected user : ');
       console.log(this.userService.connectedUser);
+      // this.userService.getOneUser(data.id).subscribe((data: User) => {
+      //   this.userService.connectedUser = data;
+
+      // });
     });
   }
 

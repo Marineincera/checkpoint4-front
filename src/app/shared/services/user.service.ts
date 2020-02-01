@@ -62,7 +62,7 @@ export class UserService {
     return this.http.get(UserService.URL + 'users/me').pipe(tap((user: User) => this.connectedUser = user));
   }
 
-  public isLogged() {
-    return this.getMe().pipe(map((user: User) => (user != null)));
-  }
+  // public isLogged() {
+  //   return this.getMe().pipe(map((user: User) => (user != null)));
+  // }
 }

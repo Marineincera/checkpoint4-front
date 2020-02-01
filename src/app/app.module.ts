@@ -38,6 +38,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConnexionComponent } from './components/authentification/connexion/connexion.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from './core/header.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,

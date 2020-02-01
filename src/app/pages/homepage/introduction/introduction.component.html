@@ -15,5 +15,6 @@
 
     <div>
         <button mat-button (click)="openConnectionModal()" *ngIf="connexionButton">Connexion</button>
+        <p *ngIf="connectedUser">{{connectedUser.name}}</p>
     </div>
 </section>

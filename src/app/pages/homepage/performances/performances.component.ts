@@ -17,6 +17,7 @@ export class PerformancesComponent implements OnInit {
   shows = [];
   artists = [];
   conenctedUserRole;
+  admin;
 
   constructor(private router: Router,
     private performancesService: PerformanceService,
@@ -25,8 +26,11 @@ export class PerformancesComponent implements OnInit {
 
   ngOnInit() {
     this.getPerformances();
-
+    if (this.userService.connectedUser) {
+      this.adminOrNot();
+    }
   }
+
 
   openArtistsList() {
     this.artistsList = true;
@@ -57,6 +61,11 @@ export class PerformancesComponent implements OnInit {
 
   }
 
+  adminOrNot() {
+    if (this.userService.connectedUser.userRoleId === 2) {
+      console.log('choupo');
+    }
 
 
+  }
 }
