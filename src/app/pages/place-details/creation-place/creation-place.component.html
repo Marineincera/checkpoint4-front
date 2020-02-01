@@ -53,12 +53,19 @@
 
                 <div class="form-cases">
                     <mat-form-field>
-                        <input matInput placeholder="Heure de representation 1" type="number"
+                        <input matInput placeholder="Heure de representation 2" type="number"
                             formControlName="representation2">
                     </mat-form-field>
                 </div>
 
-                <button type="submit" class="valid-button" [disabled]="!placeCreationForm.valid">
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 3" type="number"
+                            formControlName="representation3">
+                    </mat-form-field>
+                </div>
+
+                <button type="submit" class="valid-button">
                     Créer
                 </button>
             </form>

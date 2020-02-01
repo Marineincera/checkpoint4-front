@@ -22,7 +22,9 @@ export class CreationPlaceComponent implements OnInit {
     begin: ['', [Validators.required]],
     end: ['', [Validators.required]],
     representation1: ['', [Validators.required]],
-    representation2: ['', [Validators.required]]
+    representation2: ['', [Validators.required]],
+    representation3: ['', [Validators.required]],
+
   });
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private userService: UserService, private representationService: RepresentationService) { }
@@ -41,15 +43,17 @@ export class CreationPlaceComponent implements OnInit {
     this.placeService.postPlace(this.placeToCreate).subscribe((data: Place) => {
       console.log(data);
       this.placeToCreateId = data.id;
-      this.postRepresentation(this.placeToCreateId);
+      this.postRepresentations(this.placeCreationForm.value.representation1, this.placeToCreateId);
+      this.postRepresentations(this.placeCreationForm.value.representation2, this.placeToCreateId);
+      this.postRepresentations(this.placeCreationForm.value.representation3, this.placeToCreateId);
     });
 
   }
 
-  postRepresentation(id) {
-    if (this.placeCreationForm.value.representation1) {
+  postRepresentations(representation, id) {
+    if (representation) {
       this.representationToCreate = {
-        beginHour: this.placeCreationForm.value.representation1,
+        beginHour: representation,
         place: id
       };
       console.log(this.representationToCreate);
