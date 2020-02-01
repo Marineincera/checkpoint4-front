@@ -1,0 +1,15 @@
+<nav>
+    <a routerLink="/performances">
+        <button mat-button> Nos spectacles</button>
+    </a>
+    <a routerLink="/infos">
+        <button mat-button> Nos Infos</button>
+    </a>
+    <a routerLink="/signin">
+        <button mat-button> Connexion</button>
+    </a>
+    <a routerLink="/creation">
+        <button mat-button *ngIf="admin"> + </button>
+    </a>
+
+</nav>

@@ -2,4 +2,21 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
+    background-color: white;
+    height: 100vh;
 }
+
+
+table{
+    background-color: white;
+    z-index: inherit;
+    padding: 3%;
+    width: 50%;
+    height: 39%;
+}
+
+th{
+    text-align: left;
+}
+

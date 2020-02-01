@@ -1,8 +1,23 @@
 <section class="background">
     <div class="app">
-        <app-introduction [admin]="admin"></app-introduction>
-        <app-performances [admin]="admin"></app-performances>
-        <app-informations [admin]="admin"></app-informations>
+
+
+        <mat-tab-group>
+            <mat-tab label="Nos spectacles">
+                <app-performances [admin]="admin"></app-performances>
+            </mat-tab>
+            <mat-tab label="Nos options">
+                <app-informations [admin]="admin"></app-informations>
+            </mat-tab>
+            <mat-tab label="Connexion">
+                <app-introduction [admin]="admin"></app-introduction>
+            </mat-tab>
+            <mat-tab label="Créer">
+                <div class="create">
+                    <app-creation-perf></app-creation-perf>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
 
     </div>
 </section>

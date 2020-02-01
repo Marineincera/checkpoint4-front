@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Place } from '../../shared/models/place';
 import { PlaceService } from '../../shared/services/place.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { PlaceDialogComponent } from './place-dialog/place-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-place-details',
@@ -26,7 +28,8 @@ export class PlaceDetailsComponent implements OnInit {
   constructor(private router: Router,
     private route: ActivatedRoute,
     private placeService: PlaceService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -53,6 +56,16 @@ export class PlaceDetailsComponent implements OnInit {
     this.placeService.update(id, this.placeToUpdate).subscribe((data) => {
       console.log(id);
 
+    });
+  }
+
+  openConnectionModal(id) {
+    const dialogRef = this.dialog.open(PlaceDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.placeService.delete(id).subscribe();
+      }
     });
   }
 }

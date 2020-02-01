@@ -9,28 +9,15 @@ import { User } from '../../../shared/models/user';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
-  connectedUser: User;
-  admin = false;
+
+
 
   ngOnInit() {
-    if (localStorage.getItem('TOKEN')) {
-      console.log('token plein');
-
-      this.userService.getMe().subscribe((data: User) => {
-        console.log('data');
-        console.log(data);
-        this.connectedUser = this.userService.connectedUser;
-        if (this.userService.connectedUser.userRole.id === 2) {
-          this.userService.admin = true;
-          this.admin = true;
-        }
-
-      });
-    }
-
-    console.log(this.userService.connectedUser);
   }
+
+
+
 
 }

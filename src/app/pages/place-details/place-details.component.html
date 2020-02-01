@@ -1,7 +1,4 @@
 <section>
-    <div class="header">
-        <h1>Création</h1>
-    </div>
 
 
     <div *ngIf="placeToDisplay" class="placeToDisplay">
@@ -40,7 +37,7 @@
 
         <div class="icons">
             <i class="material-icons" (click)="openEditingForm()"> edit</i>
-            <i class="material-icons">delete</i>
+            <i class="material-icons" (click)="openConnectionModal(placeToDisplay.id)">delete</i>
         </div>
     </div>
 

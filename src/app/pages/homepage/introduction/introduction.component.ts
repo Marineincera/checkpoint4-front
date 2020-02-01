@@ -26,6 +26,7 @@ export class IntroductionComponent implements OnInit {
 
   @Input() admin: boolean;
 
+
   constructor(public dialog: MatDialog,
     private userService: UserService) { }
 
@@ -33,6 +34,8 @@ export class IntroductionComponent implements OnInit {
     if (this.userService.connectedUser) {
       this.connectedUser = this.userService.connectedUser;
     }
+
+
 
   }
 

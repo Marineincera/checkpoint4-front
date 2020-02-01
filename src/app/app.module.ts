@@ -38,6 +38,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConnexionComponent } from './components/authentification/connexion/connexion.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from './core/header.interceptor';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PlaceDialogComponent } from './pages/place-details/place-dialog/place-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +70,8 @@ import { HeaderInterceptor } from './core/header.interceptor';
     AuthentificationComponent,
     InscriptionComponent,
     ConnexionComponent,
+    NavbarComponent,
+    PlaceDialogComponent
 
 
 
@@ -82,7 +91,11 @@ import { HeaderInterceptor } from './core/header.interceptor';
     MatIconModule,
     MatCardModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatSliderModule,
+    MatPaginatorModule
   ],
   providers: [
     {
@@ -94,7 +107,8 @@ import { HeaderInterceptor } from './core/header.interceptor';
   bootstrap: [AppComponent],
   entryComponents: [
     DialogComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    PlaceDialogComponent
   ]
 
 })

@@ -5,6 +5,9 @@ import { PerfsComponent } from './pages/perfs/perfs.component';
 import { CreationPerfComponent } from './pages/perfs/creation-perf/creation-perf.component';
 import { PlaceDetailsComponent } from './pages/place-details/place-details.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { PerformancesComponent } from './pages/homepage/performances/performances.component';
+import { InformationsComponent } from './pages/homepage/informations/informations.component';
+import { IntroductionComponent } from './pages/homepage/introduction/introduction.component';
 
 
 const routes: Routes = [
@@ -13,7 +16,13 @@ const routes: Routes = [
 
   { path: 'performance/:id', component: PerfsComponent },
   { path: 'creation', component: CreationPerfComponent },
-  { path: 'places/:id', component: PlaceDetailsComponent }
+  { path: 'places/:id', component: PlaceDetailsComponent },
+
+  //
+  { path: 'performances', component: PerformancesComponent },
+  { path: 'infos', component: InformationsComponent },
+  { path: 'signin', component: IntroductionComponent },
+
 ];
 
 @NgModule({

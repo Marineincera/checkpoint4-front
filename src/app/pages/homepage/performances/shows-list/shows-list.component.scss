@@ -1,0 +1,13 @@
+div{
+    display: flex;
+}
+
+section{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.mat-tab-group{
+    display: flex;
+}

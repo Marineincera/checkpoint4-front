@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserRoleService } from '../../../shared/services/user-role.service';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-informations',
@@ -13,9 +15,14 @@ export class InformationsComponent implements OnInit {
 
   @Input() admin;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    if (this.userService.connectedUser) {
+      if (this.userService.admin = true) {
+        this.admin = true;
+      }
+    }
   }
 
 

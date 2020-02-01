@@ -11,11 +11,12 @@ import { UserService } from '../../../shared/services/user.service';
 })
 export class PerformancesComponent implements OnInit {
 
-  artistsList = false;
+  artistsList = true;
   showsList = true;
   performances: Performance[];
   shows = [];
   artists = [];
+
 
 
   @Input() admin;
