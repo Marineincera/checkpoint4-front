@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
       this.userService.getMe().subscribe((data: User) => {
         console.log('data');
         console.log(data);
+        this.userService.connectedUser = data;
         this.connectedUser = this.userService.connectedUser;
         if (this.userService.connectedUser.userRole.id === 2) {
           this.userService.admin = true;
