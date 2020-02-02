@@ -1,0 +1,39 @@
+<p>admin-prices works!</p>
+<table mat-table [dataSource]="prices" class="mat-elevation-z1">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let price"> {{price.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="categoryPrice">
+        <th mat-header-cell *matHeaderCellDef> Catégories </th>
+        <td mat-cell *matCellDef="let price"> {{price.categoryPrice.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="week">
+        <th mat-header-cell *matHeaderCellDef> Week</th>
+        <td mat-cell *matCellDef="let price"> {{price.week}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="weekEnd">
+        <th mat-header-cell *matHeaderCellDef> Week-end </th>
+        <td mat-cell *matCellDef="let price"> {{price.weekEnd}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="specialEvent">
+        <th mat-header-cell *matHeaderCellDef> Evenement spécial </th>
+        <td mat-cell *matCellDef="let price"> {{price.specialEvent}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Prix </th>
+        <td mat-cell *matCellDef="let price"> {{price.amount}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<button mat-button (click)="openDialog()"> Modifier un prix</button>

@@ -9,6 +9,7 @@ import { PerformancesComponent } from './pages/homepage/performances/performance
 import { InformationsComponent } from './pages/homepage/informations/informations.component';
 import { IntroductionComponent } from './pages/homepage/introduction/introduction.component';
 import { CreationComponent } from './pages/creation/creation.component';
+import { AdminPricesComponent } from './pages/admin-prices/admin-prices.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'performances', component: PerformancesComponent },
   { path: 'infos', component: InformationsComponent },
   { path: 'signin', component: IntroductionComponent },
+  { path: 'admin/prices', component: AdminPricesComponent }
 
 ];
 

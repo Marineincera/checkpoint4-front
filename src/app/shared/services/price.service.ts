@@ -6,7 +6,7 @@ import { WshelperService } from './wshelper.service';
 })
 export class PriceService {
 
-  static URL = 'http://localhost:3000/prices';
+  static URL = 'http://localhost:3000/prices/';
 
   constructor(private wsh: WshelperService) { }
 

@@ -46,6 +46,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PlaceDialogComponent } from './pages/place-details/place-dialog/place-dialog.component';
 import { CreationPlaceComponent } from './pages/place-details/creation-place/creation-place.component';
 import { CreationComponent } from './pages/creation/creation.component';
+import { AdminPricesComponent } from './pages/admin-prices/admin-prices.component';
+import { ModalUpdatePricesComponent } from './pages/admin-prices/modal-update-prices/modal-update-prices.component';
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import { CreationComponent } from './pages/creation/creation.component';
     PlaceDialogComponent,
     CreationPlaceComponent,
     CreationComponent,
+    AdminPricesComponent,
+    ModalUpdatePricesComponent,
 
 
 
@@ -113,7 +117,8 @@ import { CreationComponent } from './pages/creation/creation.component';
   entryComponents: [
     DialogComponent,
     AuthentificationComponent,
-    PlaceDialogComponent
+    PlaceDialogComponent,
+    ModalUpdatePricesComponent
   ]
 
 })

@@ -1,0 +1,72 @@
+<p>modal-update-prices works!</p>
+
+<div>
+    <mat-form-field>
+        <input matInput placeholder="Id du prix à modifier" type="number" [(ngModel)]="priceIdToUpdate">
+    </mat-form-field>
+
+    <button mat-button (click)="openUpdatingForm(priceIdToUpdate)"> Sélectionner </button>
+
+</div>
+
+<form [formGroup]="updatingPriceForm" (ngSubmit)="onSubmit()" class="price-creation-form"
+    *ngIf="updatingPriceFormOpened">
+
+    <div class="form-cases">
+        <mat-form-field>
+            <input matInput placeholder="Prix" type="text" formControlName="amount">
+        </mat-form-field>
+    </div>
+
+
+    <mat-form-field>
+
+        <mat-label>Période</mat-label>
+
+        <mat-select formControlName="period">
+
+            <mat-option [value]="1" (click)="periodSelected()">
+                Week
+            </mat-option>
+
+            <mat-option [value]="2" (click)="periodSelected()">
+                Week-end & mercredi
+            </mat-option>
+
+            <mat-option [value]="3" (click)="periodSelected()">
+                Evénement spécial
+            </mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field>
+
+        <mat-label>Categorie</mat-label>
+
+        <mat-select formControlName="categoryPrice">
+
+            <mat-option [value]="1" (click)="categorySelected()">
+                Adulte
+            </mat-option>
+
+            <mat-option [value]="2" (click)="categorySelected()">
+                Enfant
+            </mat-option>
+
+            <mat-option [value]="3" (click)="categorySelected()">
+                Groupe
+            </mat-option>
+
+            <mat-option [value]="3" (click)="categorySelected()">
+                Ecole
+            </mat-option>
+        </mat-select>
+
+    </mat-form-field>
+
+    <button mat-button> Modifier </button>
+
+
+</form>
