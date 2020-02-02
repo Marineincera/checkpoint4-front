@@ -15,6 +15,6 @@ export class WelcomeComponent implements OnInit {
 
 
   openWebsite() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/performances']);
   }
 }

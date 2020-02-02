@@ -7,6 +7,7 @@ import { CategoryPerformance } from '../../../shared/models/category-performance
 import { CategoryPriceService } from '../../../shared/services/category-price.service';
 import { CategoryPerformanceService } from '../../../shared/services/category-performance.service';
 import { UserService } from '../../../shared/services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-perf',
@@ -14,6 +15,8 @@ import { UserService } from '../../../shared/services/user.service';
   styleUrls: ['./creation-perf.component.scss']
 })
 export class CreationPerfComponent implements OnInit {
+
+
 
   perfToCreate: Performance;
   typesOfPerf: CategoryPerformance[];
@@ -26,7 +29,12 @@ export class CreationPerfComponent implements OnInit {
     picture: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private perfService: PerformanceService, private categoryPerf: CategoryPerformanceService, private userService: UserService) { }
+  constructor(private fb: FormBuilder,
+    private perfService: PerformanceService,
+    private categoryPerf: CategoryPerformanceService,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.categoryPerf.getAllCategoryPerformance().subscribe((data: CategoryPerformance[]) => {
@@ -51,7 +59,9 @@ export class CreationPerfComponent implements OnInit {
     };
 
     console.log(this.perfToCreate);
-    this.perfService.postPerformance(this.perfToCreate).subscribe();
+    this.perfService.postPerformance(this.perfToCreate).subscribe((data: Performance) => {
+      this.router.navigate(['/performance/' + data.id]);
+    });
   }
 
 }

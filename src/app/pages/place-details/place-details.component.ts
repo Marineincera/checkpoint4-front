@@ -52,6 +52,7 @@ export class PlaceDetailsComponent implements OnInit {
 
   openEditingForm() {
     this.editionOpen = !this.editionOpen;
+    this.representations = false;
   }
 
   updatePlace(id) {
@@ -65,7 +66,7 @@ export class PlaceDetailsComponent implements OnInit {
       this.updateRepresentations(0, this.placeUpdateForm.value.representation1, id);
       this.updateRepresentations(1, this.placeUpdateForm.value.representation2, id);
       this.updateRepresentations(2, this.placeUpdateForm.value.representation3, id);
-
+      this.editionOpen = false;
     });
   }
 
