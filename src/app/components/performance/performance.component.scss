@@ -14,3 +14,11 @@ img{
     width: 45vw;
     margin-top: 3%;
 }
+
+@media screen and (max-width: 640px){
+
+    .mat-card{
+        width: 100vw;
+    }
+
+}

@@ -16,3 +16,15 @@ img{
     background-color: white;
     border-radius: 5%;
 }
+
+@media screen and (max-width: 640px) {
+  section{
+      flex-direction: column;
+  }
+
+  nav{
+      display: flex;
+      flex-direction: column;
+  }
+
+  }

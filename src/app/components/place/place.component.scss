@@ -27,3 +27,9 @@ h3{
 .mat-card{
     width: 20vw;
 }
+
+@media screen and (max-width: 640px){
+    .mat-card{
+        width: 100vw;
+    }
+}
