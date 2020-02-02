@@ -1,0 +1,74 @@
+<div class="stars"></div>
+<div class="twinkling"></div>
+<section>
+    <div class="header">
+        <h1>Ajout d'une nouveau lieu de représentation</h1>
+    </div>
+    <div class="form">
+
+        <div>
+            <form [formGroup]="placeCreationForm" (ngSubmit)="onSubmit()" class="perf-creation-form">
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Ville" type="text" formControlName="city">
+                    </mat-form-field>
+                </div>
+                <div *ngIf="placeCreationForm.controls['city'].errors && placeCreationForm.controls['city'].touched">
+                    <div [hidden]="!placeCreationForm.controls['city'].errors.required" class="error">
+                        Obligatoire
+                    </div>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Date de début" type="text" formControlName="begin">
+                    </mat-form-field>
+                </div>
+                <div *ngIf="placeCreationForm.get('begin').errors && placeCreationForm.get('begin').touched "
+                    class="error-msg">
+                    <div [hidden]="!placeCreationForm.get('begin').errors.required" class="error">
+                        Obligatoire
+                    </div>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Date de fin" type="text" formControlName="end">
+                    </mat-form-field>
+                </div>
+                <div *ngIf="placeCreationForm.get('end').errors && placeCreationForm.get('end').touched "
+                    class="error-msg">
+                    <div [hidden]="!placeCreationForm.get('end').errors.required" class="error">
+                        Obligatoire
+                    </div>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 1" type="number"
+                            formControlName="representation1">
+                    </mat-form-field>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 2" type="number"
+                            formControlName="representation2">
+                    </mat-form-field>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 3" type="number"
+                            formControlName="representation3">
+                    </mat-form-field>
+                </div>
+
+                <button type="submit" class="valid-button">
+                    Créer
+                </button>
+            </form>
+        </div>
+
+    </div>

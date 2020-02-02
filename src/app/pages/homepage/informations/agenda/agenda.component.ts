@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PlaceService } from '../../../../shared/services/place.service';
 import { Place } from '../../../../shared/models/place';
 
@@ -12,6 +12,7 @@ export class AgendaComponent implements OnInit {
   constructor(private placesService: PlaceService) { }
 
   places: Place[];
+  @Input() admin;
 
   ngOnInit() {
     this.getAllPlaces();

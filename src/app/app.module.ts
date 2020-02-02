@@ -30,6 +30,24 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { PlaceDetailsComponent } from './pages/place-details/place-details.component';
+import { MatCardModule } from '@angular/material/card';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { AuthentificationComponent } from './components/authentification/authentification.component';
+import { InscriptionComponent } from './components/authentification/inscription/inscription.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConnexionComponent } from './components/authentification/connexion/connexion.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './core/header.interceptor';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PlaceDialogComponent } from './pages/place-details/place-dialog/place-dialog.component';
+import { CreationPlaceComponent } from './pages/place-details/creation-place/creation-place.component';
+import { CreationComponent } from './pages/creation/creation.component';
+import { AdminPricesComponent } from './pages/admin-prices/admin-prices.component';
+import { ModalUpdatePricesComponent } from './pages/admin-prices/modal-update-prices/modal-update-prices.component';
 
 
 @NgModule({
@@ -52,6 +70,17 @@ import { PlaceDetailsComponent } from './pages/place-details/place-details.compo
     CreationPerfComponent,
     DialogComponent,
     PlaceDetailsComponent,
+    WelcomeComponent,
+    AuthentificationComponent,
+    InscriptionComponent,
+    ConnexionComponent,
+    NavbarComponent,
+    PlaceDialogComponent,
+    CreationPlaceComponent,
+    CreationComponent,
+    AdminPricesComponent,
+    ModalUpdatePricesComponent,
+
 
 
 
@@ -68,12 +97,28 @@ import { PlaceDetailsComponent } from './pages/place-details/place-details.compo
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatSliderModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    AuthentificationComponent,
+    PlaceDialogComponent,
+    ModalUpdatePricesComponent
   ]
 
 })

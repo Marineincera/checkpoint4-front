@@ -1,75 +1,66 @@
 <section>
     <div class="header">
-        <h1>Création</h1>
+        <h1>Ajout d'une nouvelle performance</h1>
     </div>
-    <div class="form">
-        <!-- <div>
-            <img src="" alt="">
-        </div> -->
 
-        <div>
-            <form [formGroup]="performanceCreationForm" (ngSubmit)="onSubmit()" class="perf-creation-form">
+    <div>
+        <form [formGroup]="performanceCreationForm" (ngSubmit)="onSubmit()" class="perf-creation-form">
 
-                <div class="form-cases">
-                    <mat-form-field>
-                        <input matInput placeholder="Nom de la Perf" type="text" formControlName="name">
-                    </mat-form-field>
-                </div>
-                <div
-                    *ngIf="performanceCreationForm.controls['name'].errors && performanceCreationForm.controls['name'].touched">
-                    <div [hidden]="!performanceCreationForm.controls['name'].errors.required" class="error">Le nom
-                        est
-                        obligatoire
-                    </div>
-                </div>
-
-                <div class="form-cases">
-                    <mat-form-field>
-                        <input matInput placeholder="Description" type="text" formControlName="description">
-                    </mat-form-field>
-                </div>
-                <div *ngIf="performanceCreationForm.get('description').errors && performanceCreationForm.get('description').touched "
-                    class="error-msg">
-                    <div [hidden]="!performanceCreationForm.get('description').errors.required" class="error">Une
-                        description est obligatoire
-                    </div>
-                </div>
-
-                <div class="form-cases">
-                    <mat-form-field>
-                        <input matInput placeholder="Url de l'image" type="text" formControlName="picture">
-                    </mat-form-field>
-                </div>
-                <div *ngIf="performanceCreationForm.get('picture').errors && performanceCreationForm.get('picture').touched "
-                    class="error-msg">
-                    <div [hidden]="!performanceCreationForm.get('picture').errors.required" class="error">L'image est
-                        obligatoire
-                    </div>
-                </div>
-
+            <div class="form-cases">
                 <mat-form-field>
-
-                    <mat-label *ngIf="typesOfPerf">select</mat-label>
-
-                    <mat-select>
-
-                        <mat-option *ngFor="let type of typesOfPerf" [value]="type.name"
-                            (click)="typeSelected(type.id)">
-                            {{type.name}}
-                        </mat-option>
-
-                    </mat-select>
-
+                    <input matInput placeholder="Nom de la Perf" type="text" formControlName="name">
                 </mat-form-field>
+            </div>
+            <div
+                *ngIf="performanceCreationForm.controls['name'].errors && performanceCreationForm.controls['name'].touched">
+                <div [hidden]="!performanceCreationForm.controls['name'].errors.required" class="error">Le nom
+                    est
+                    obligatoire
+                </div>
+            </div>
+
+            <div class="form-cases">
+                <mat-form-field>
+                    <input matInput placeholder="Description" type="text" formControlName="description">
+                </mat-form-field>
+            </div>
+            <div *ngIf="performanceCreationForm.get('description').errors && performanceCreationForm.get('description').touched "
+                class="error-msg">
+                <div [hidden]="!performanceCreationForm.get('description').errors.required" class="error">Une
+                    description est obligatoire
+                </div>
+            </div>
+
+            <div class="form-cases">
+                <mat-form-field>
+                    <input matInput placeholder="Url de l'image" type="text" formControlName="picture">
+                </mat-form-field>
+            </div>
+            <div *ngIf="performanceCreationForm.get('picture').errors && performanceCreationForm.get('picture').touched "
+                class="error-msg">
+                <div [hidden]="!performanceCreationForm.get('picture').errors.required" class="error">L'image est
+                    obligatoire
+                </div>
+            </div>
+
+            <mat-form-field>
+
+                <mat-label *ngIf="typesOfPerf">select</mat-label>
+
+                <mat-select>
+
+                    <mat-option *ngFor="let type of typesOfPerf" [value]="type.name" (click)="typeSelected(type.id)">
+                        {{type.name}}
+                    </mat-option>
+
+                </mat-select>
+
+            </mat-form-field>
 
 
-                <button type="submit" class="valid-button" [disabled]="!performanceCreationForm.valid">
-                    Créer
-                </button>
-            </form>
-        </div>
-
+            <button type="submit" class="valid-button" [disabled]="!performanceCreationForm.valid">
+                Créer
+            </button>
+        </form>
     </div>
-
-
 </section>

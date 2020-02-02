@@ -1,6 +1,6 @@
 export class UserRole {
     id: number;
-    name: string;
+    name?: string;
 
     constructor(userRole: UserRole) {
         Object.assign(userRole, this);

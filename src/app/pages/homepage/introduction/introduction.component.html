@@ -1,17 +1,17 @@
-<div class="title">
-    <!-- <div class="stars">
-        <div class="twinkling"> -->
-    <h1>The WILD STARS CIRCUS</h1>
-    <!-- </div>
-    </div> -->
-</div>
-
-<section>
-    <div class="presentation">
-        <h2>Un cirque hors du temps</h2>
-        <p>BLABLABLA</p>
-        <p>BLABLABLA</p>
-        <p>BLABLABLA</p>
+<!-- <div class="title">
+    <div class="background-title">
+        <h1>The WILD STARS CIRCUS</h1>
     </div>
 
+</div> -->
+
+
+<section>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div>
+        <button mat-button (click)="openConnectionModal()" *ngIf="connexionButton">Connexion</button>
+        <p *ngIf="connectedUser">{{connectedUser.pseudo}}</p>
+    </div>
 </section>

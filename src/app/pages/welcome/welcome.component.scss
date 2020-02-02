@@ -1,0 +1,285 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+
+}
+
+.title{
+  position: fixed;
+  top: 0;
+  width: 50%;  
+  justify-content: space-evenly;
+  margin-left: 6%;
+
+}
+
+img{
+  z-index: 3;
+  position: absolute;
+  /* width: 30%; */
+  top: 0;
+  left: 46vw;
+}
+
+.big-title{
+  display: flex;
+  align-items: center;
+}
+
+h1{
+  color: rgba(0, 214, 252, 1);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    margin-top: 20%;
+}
+
+.holo{
+  left: -2%;
+  width: 47%;
+  position: fixed;
+  top: 8%;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #1d1e21;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kave {
+  &-btn {
+    position: relative;
+    border: solid 1px rgba(0, 214, 252, 0.3);
+    background: none;
+    color: rgba(0, 214, 252, 0.5);
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 1.8px;
+    width: 50%;
+    margin-left: 95%;
+    height: 70px;
+    padding: 0;
+    transition: all 0.25s ease;
+    outline: none;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 60px;
+      height: 1px;
+      transform: translateY(-1px);
+      background: rgba(0, 214, 252, 1);
+      transition: all 0.25s ease;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 10%;
+      width: 60px;
+      height: 1px;
+      transform: translateY(1px);
+      background: rgba(0, 214, 252, 1);
+      transition: all 0.25s ease;
+    }
+    &:hover {
+      box-shadow: 1px 1px 8px rgba(0, 214, 252, 0.3);
+      color: rgba(0, 214, 252, 1);
+      text-shadow: 0 0 8px rgba(0, 214, 252, 0.4);
+      &.kave-btn:before {
+        left: 0;
+        width: 20px;
+      }
+      &.kave-btn:after {
+        right: 0;
+        width: 20px;
+      }
+      .kave-line:before {
+        bottom: 0;
+      }
+      .kave-line:after {
+        top: 0;
+      }
+    }
+  }
+  &-line {
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 30%;
+      right: 0;
+      width: 1px;
+      height: 20px;
+      transform: translateX(1px);
+      background: rgba(0, 214, 252, 1);
+      transition: all 0.25s ease;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: 0;
+      width: 1px;
+      height: 20px;
+      transform: translateX(-1px);
+      background: rgba(0, 214, 252, 1);
+      transition: all 0.25s ease;
+    }
+  }
+}
+
+.title{
+  z-index: 2;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+// background stars
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color:rgba(33, 33, 33, 0.9);
+    color:#ffffff;
+    display:block;
+    font: 14px/1.3 Arial,sans-serif;
+    height:50px;
+    position:relative;
+    z-index:5;
+}
+h2{
+    margin-top: 30px;
+    text-align: center;
+}
+header h2{
+    font-size: 22px;
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 80%;
+    text-align: center;
+}
+header a, a:visited {
+    text-decoration:none;
+    color:#fcfcfc;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
+
+.stars, .twinkling, .clouds {
+  position: fixed;
+//   top:0;
+  left:0;
+  right:0;
+//   bottom:0;
+  width:100%;
+  //height of the background !!!! 
+  height: 112%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  z-index:0;
+}
+
+.twinkling{
+  background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.clouds{
+    background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    z-index:3;
+
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -ms-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
+
+
+
+body{background:#ECF0F1}
+
+.load{
+  position:absolute;
+  top: 15%;
+  left: 25%;
+
+  transform:translate(-50%, -50%);
+  /*change these sizes to fit into your project*/
+  width: 17%;
+  height: 16%;
+}
+.load hr{border:0;margin:0;width:40%;height:40%;position:absolute;border-radius:50%;animation:spin 2s ease infinite}
+
+.load :first-child{background:#19A68C;animation-delay:-1.5s}
+.load :nth-child(2){background:#F63D3A;animation-delay:-1s}
+.load :nth-child(3){background:#FDA543;animation-delay:-0.5s}
+.load :last-child{background:#193B48}
+
+@keyframes spin{
+  0%,100%{transform:translate(0)}
+  25%{transform:translate(160%)}
+  50%{transform:translate(160%, 160%)}
+  75%{transform:translate(0, 160%)}
+}
+
+
+//svg

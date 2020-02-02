@@ -1,9 +1,4 @@
 <section *ngIf="performanceToDisplay">
-    <div class="header">
-        <h1>Création</h1>
-    </div>
-
-
     <div class="containt">
 
         <div>
@@ -12,8 +7,8 @@
         </div>
         <img src="{{performanceToDisplay.picture}}" alt="">
 
-        <button (click)="openUpdateForm()">Modifier cette performance</button>
-        <button (click)="deletePerf(performanceToDisplay.id)">Supprimer cette performance</button>
+        <button *ngIf="admin" (click)="openUpdateForm()">Modifier cette performance</button>
+        <button *ngIf="admin" (click)="deletePerf(performanceToDisplay.id)">Supprimer cette performance</button>
 
     </div>
 

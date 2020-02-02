@@ -1,0 +1,24 @@
+<section>
+    <nav class="none">
+        <a routerLink="/performances">
+            <button mat-button> Nos spectacles</button>
+        </a>
+        <a routerLink="/infos">
+            <button mat-button> Nos Infos</button>
+        </a>
+        <a routerLink="/signin">
+            <button mat-button> Connexion</button>
+        </a>
+        <a routerLink="/creation">
+            <button mat-button *ngIf="admin"> + </button>
+        </a>
+        <a routerLink="/admin/prices">
+            <button mat-button *ngIf="admin"> Gérer prix</button>
+        </a>
+    </nav>
+    <div *ngIf="connectedUser">
+        <p>Hello {{connectedUser.pseudo}}</p>
+    </div>
+    <button mat-button (click)="signOut()" *ngIf="connectedUser"> Se déconnecter </button>
+    <img src="../../../assets/pictures/logoW.png" alt="">
+</section>

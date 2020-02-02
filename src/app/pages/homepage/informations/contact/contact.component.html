@@ -1,1 +1,50 @@
-<p>contact works!</p>
+<section *ngIf="messageOpened">
+    <div class="header">
+        <h1>Ajout d'une nouvelle performance</h1>
+    </div>
+
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-cases">
+            <mat-form-field>
+                <input matInput placeholder="Objet du message" type="text" formControlName="object">
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-cases">
+            <mat-form-field>
+                <input matInput placeholder="Entrez votre adresse mail ou votre numéro pour être recontacter"
+                    type="text" formControlName="mailAuthor">
+            </mat-form-field>
+        </div>
+
+        <div class="form-cases">
+            <mat-form-field>
+                <input matInput placeholder="Votre message" type="text" formControlName="text">
+            </mat-form-field>
+        </div>
+
+        <button type="submit" class="valid-button" [disabled]="!contactForm.valid">
+            Envoyer
+        </button>
+    </form>
+
+</section>
+<section *ngIf="thankMessage">
+    <p>Merci pour votre message</p>
+</section>
+<section *ngIf="messages && messagesArray">
+
+    <div class="messages">
+        <mat-card *ngFor="let message of messages; let i = index">
+            <h1>{{message.object}}</h1>
+            <h2>{{message.mailAuthor}}</h2>
+            <p>{{message.text}}</p>
+            <button mat-button (click)="messageOK(message.id, i)"> Message traité </button>
+        </mat-card>
+    </div>
+
+
+</section>

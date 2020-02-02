@@ -1,0 +1,20 @@
+<section mat-dialog-content>
+    <div *ngIf="inscription">
+        <h1>Inscription</h1>
+        <p>Rejoignez le réseau social qui récompense l'information de qualité</p>
+    </div>
+    <div *ngIf="connexion">
+        <h1>Connexion</h1>
+        <p>Partagez les sources qui font la différence, débattez, évaluez ou tenez-vous informer !</p>
+    </div>
+    <div class="form">
+        <div class="buttons">
+            <h2 #connect (click)="openConnexion(connect, subscribe)" class="selected">Connexion</h2>
+            <h2 #subscribe (click)="openInscription(subscribe, connect)">Inscription</h2>
+        </div>
+        <div class="window">
+            <app-connexion *ngIf="connexion"></app-connexion>
+            <app-inscription *ngIf="inscription"></app-inscription>
+        </div>
+    </div>
+</section>

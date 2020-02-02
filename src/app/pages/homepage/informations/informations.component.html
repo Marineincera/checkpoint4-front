@@ -1,6 +1,11 @@
-<button (click)="openAgenda()">Agenda</button>
-<button (click)="openPrices()">Prix</button>
-<button (click)="openContact()">Contact</button>
-<app-agenda *ngIf="agendaDisplay"></app-agenda>
-<app-prices *ngIf="priceDisplay"></app-prices>
-<app-contact *ngIf="contactDisplay"></app-contact>
+<button mat-button (click)="openAgenda()">Agenda</button>
+<button mat-button (click)="openPrices()">Prix</button>
+<button mat-button (click)="openContact()">Contact</button>
+<section>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <app-agenda *ngIf="agendaDisplay" [admin]="admin"></app-agenda>
+    <app-prices *ngIf="priceDisplay" [admin]="admin"></app-prices>
+    <app-contact *ngIf="contactDisplay"></app-contact>
+</section>
