@@ -18,23 +18,49 @@
                 <input matInput placeholder="{{placeToDisplay.end}}" formControlName="end">
             </mat-form-field>
 
-            <button type="submit" *ngIf="editionOpen">Valider les modifications</button>
-        </form>
 
-        <h2 class="button" (click)="showRepresentations()">Heures de représentations</h2>
-        <div [hidden]="!representations">
-            <div *ngIf="placeToDisplay.representations" class="representations">
-                <h3>Tous les jours à : </h3>
 
-                <div *ngFor="let representation of placeToDisplay.representations; let i = index">
-                    <h3>{{representation.beginHour}}h</h3>
-                    <!-- <mat-form-field class="example-full-width" *ngIf="editionOpen">
+            <h2 class="button" (click)="showRepresentations()">Heures de représentations</h2>
+            <div [hidden]="!representations">
+                <div *ngIf="placeToDisplay.representations" class="representations">
+                    <h3>Tous les jours à : </h3>
+
+                    <div *ngFor="let representation of placeToDisplay.representations; let i = index">
+                        <h3>{{representation.beginHour}}h</h3>
+                        <!-- <mat-form-field class="example-full-width" *ngIf="editionOpen">
                         <input matInput value="{{representation[i].beginHour}}" [(ngModel)]="newBeginHour">
                     </mat-form-field> -->
+                    </div>
                 </div>
             </div>
-        </div>
 
+
+            <div *ngIf="editionOpen" class="representations">
+                <h3>Tous les jours à : </h3>
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 1" type="number"
+                            formControlName="representation1">
+                    </mat-form-field>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 2" type="number"
+                            formControlName="representation2">
+                    </mat-form-field>
+                </div>
+
+                <div class="form-cases">
+                    <mat-form-field>
+                        <input matInput placeholder="Heure de representation 3" type="number"
+                            formControlName="representation3">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="submit" *ngIf="editionOpen">Valider les modifications</button>
+        </form>
         <div class="icons">
             <i class="material-icons" (click)="openEditingForm()"> edit</i>
             <i class="material-icons" (click)="openConnectionModal(placeToDisplay.id)">delete</i>

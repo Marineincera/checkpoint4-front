@@ -5,6 +5,8 @@ import { PlaceService } from '../../shared/services/place.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PlaceDialogComponent } from './place-dialog/place-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Representation } from '../../shared/models/representation';
+import { RepresentationService } from '../../shared/services/representation.service';
 
 @Component({
   selector: 'app-place-details',
@@ -18,18 +20,23 @@ export class PlaceDetailsComponent implements OnInit {
   representations = false;
   editionOpen = false;
   placeToUpdate: Place;
+  representationToUpdate: Representation;
 
   placeUpdateForm = this.fb.group({
     city: [''],
     begin: [''],
     end: [''],
+    representation1: [''],
+    representation2: [''],
+    representation3: [''],
   });
 
   constructor(private router: Router,
     private route: ActivatedRoute,
     private placeService: PlaceService,
     private fb: FormBuilder,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private representationService: RepresentationService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -54,7 +61,22 @@ export class PlaceDetailsComponent implements OnInit {
       end: this.placeUpdateForm.value.end || this.placeToDisplay.end
     };
     this.placeService.update(id, this.placeToUpdate).subscribe((data) => {
-      console.log(id);
+      console.log(data);
+      this.updateRepresentations(0, this.placeUpdateForm.value.representation1);
+      this.updateRepresentations(1, this.placeUpdateForm.value.representation2);
+      this.updateRepresentations(2, this.placeUpdateForm.value.representation3);
+
+    });
+  }
+
+  updateRepresentations(i: number, representation: number) {
+    this.representationToUpdate = {
+      id: this.placeToDisplay.representations[i].id,
+      beginHour: representation,
+      place: this.placeToUpdate.id
+    };
+    this.representationService.update(this.representationToUpdate.id, this.representationToUpdate).subscribe((data: Representation) => {
+      console.log(data);
 
     });
   }
