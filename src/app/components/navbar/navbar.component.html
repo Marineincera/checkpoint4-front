@@ -19,5 +19,6 @@
     <div *ngIf="connectedUser">
         <p>Hello {{connectedUser.pseudo}}</p>
     </div>
+    <button mat-button (click)="signOut()" *ngIf="connectedUser"> Se déconnecter </button>
     <img src="../../../assets/pictures/logoW.png" alt="">
 </section>

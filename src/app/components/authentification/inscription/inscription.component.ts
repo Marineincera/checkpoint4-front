@@ -35,7 +35,7 @@ export class InscriptionComponent implements OnInit {
       pseudo: this.userForm.value.pseudo,
       password: this.userForm.value.password,
       email: this.userForm.value.email,
-      userRoleId: 2
+      userRoleId: 4
     };
     console.log(this.userCreated);
 
