@@ -62,23 +62,31 @@ export class PlaceDetailsComponent implements OnInit {
     };
     this.placeService.update(id, this.placeToUpdate).subscribe((data) => {
       console.log(data);
-      this.updateRepresentations(0, this.placeUpdateForm.value.representation1);
-      this.updateRepresentations(1, this.placeUpdateForm.value.representation2);
-      this.updateRepresentations(2, this.placeUpdateForm.value.representation3);
+      this.updateRepresentations(0, this.placeUpdateForm.value.representation1, id);
+      this.updateRepresentations(1, this.placeUpdateForm.value.representation2, id);
+      this.updateRepresentations(2, this.placeUpdateForm.value.representation3, id);
 
     });
   }
 
-  updateRepresentations(i: number, representation: number) {
-    this.representationToUpdate = {
-      id: this.placeToDisplay.representations[i].id,
-      beginHour: representation,
-      place: this.placeToUpdate.id
-    };
-    this.representationService.update(this.representationToUpdate.id, this.representationToUpdate).subscribe((data: Representation) => {
-      console.log(data);
+  updateRepresentations(i: number, representation: number, id) {
+    if (this.placeToDisplay.representations[i]) {
+      this.representationToUpdate = {
+        id: this.placeToDisplay.representations[i].id,
+        beginHour: representation,
+        place: id
+      };
+      this.representationService.update(this.representationToUpdate.id, this.representationToUpdate).subscribe((data: Representation) => {
+        console.log(data);
+      });
+    } else {
+      const representationToPost = {
+        beginHour: representation,
+        place: id
+      };
+      this.representationService.postRepresentation(representationToPost).subscribe();
+    }
 
-    });
   }
 
   openConnectionModal(id) {
