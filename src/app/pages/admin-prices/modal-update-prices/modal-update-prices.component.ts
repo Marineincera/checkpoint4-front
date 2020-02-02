@@ -37,6 +37,14 @@ export class ModalUpdatePricesComponent implements OnInit {
 
   // categories available
   pricesCategoriesAvailable: CategoryPrice[];
+  categoryToCreate;
+
+  // to add a new category
+  inputNewCategoryOpened = false;
+
+  // delete a category
+  categoryToDelete: CategoryPrice;
+  deleteCategoryOpened = false;
 
   constructor(public dialogRef: MatDialogRef<ModalUpdatePricesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -107,11 +115,45 @@ export class ModalUpdatePricesComponent implements OnInit {
   }
 
   updatePrice(id: number, price: Price) {
-    this.priceService.update(id, price).subscribe();
+    this.priceService.update(id, price).subscribe((data) => {
+      if (data) {
+        this.dialogRef.close();
+      }
+    });
   }
 
 
+  // add a new category
+
+  openNewCategoryInput() {
+    this.inputNewCategoryOpened = true;
+  }
+
+  addNewCategory() {
+    if (this.categoryToCreate) {
+      this.categoriesService.postCategory({ name: this.categoryToCreate }).subscribe((data: CategoryPrice) => {
+        this.pricesCategoriesAvailable.push(data);
+        if (data) {
+          this.dialogRef.close();
+        }
+      });
+    }
+  }
 
 
+  // Delete a category
+
+  openDeleteCategorySelect() {
+    this.deleteCategoryOpened = true;
+  }
+
+  deleteCategory() {
+    if (this.categoryToDelete) {
+      this.categoriesService.delete(this.categoryToDelete).subscribe((data) => {
+        this.deleteCategoryOpened = false;
+      });
+
+    }
+  }
 
 }

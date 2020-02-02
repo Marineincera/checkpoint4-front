@@ -1,16 +1,19 @@
-<p>modal-update-prices works!</p>
-
-<div>
+<div [hidden]="updatingPriceFormOpened || inputNewCategoryOpened || deleteCategoryOpened">
     <mat-form-field>
         <input matInput placeholder="Id du prix à modifier" type="number" [(ngModel)]="priceIdToUpdate">
     </mat-form-field>
 
     <button mat-button (click)="openUpdatingForm(priceIdToUpdate)"> Sélectionner </button>
 
+    <button mat-button (click)="openNewCategoryInput()"> Ajouter une catégorie de prix</button>
+    <button mat-button (click)="openDeleteCategorySelect()"> Supprimer une catégorie de prix</button>
+
 </div>
 
+
+
 <form [formGroup]="updatingPriceForm" (ngSubmit)="onSubmit()" class="price-creation-form"
-    *ngIf="updatingPriceFormOpened">
+    *ngIf="updatingPriceFormOpened" [hidden]="inputNewCategoryOpened">
 
     <div class="form-cases">
         <mat-form-field>
@@ -55,7 +58,28 @@
 
     </mat-form-field>
 
-    <button mat-button> Modifier </button>
+    <button mat-button [mat-dialog-close] [hidden]="inputNewCategoryOpened"> Modifier ce prix </button>
 
 
 </form>
+
+<div class="form-cases" *ngIf="inputNewCategoryOpened">
+    <mat-form-field>
+        <input matInput placeholder="Nom de la nouvelle catégorie" type="text" [(ngModel)]="categoryToCreate">
+    </mat-form-field>
+    <button mat-button (click)="addNewCategory()"> Valider </button>
+</div>
+
+
+<div *ngIf="deleteCategoryOpened">
+
+    <mat-label>Categorie à supprimer</mat-label>
+
+    <mat-select [(ngModel)]="categoryToDelete">
+        <mat-option *ngFor="let categoryToD of pricesCategoriesAvailable" [value]="categoryToD.id">
+            {{categoryToD.name}}
+        </mat-option>
+    </mat-select>
+
+    <button mat-button (click)="deleteCategory()"> Supprimer</button>
+</div>
