@@ -1,9 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { DialogData } from '../../homepage/introduction/introduction.component';
 import { PriceService } from '../../../shared/services/price.service';
 import { Price } from '../../../shared/models/price';
 import { FormBuilder } from '@angular/forms';
+import { CategoryPrice } from '../../../shared/models/category-price';
+import { CategoryPriceService } from '../../../shared/services/category-price.service';
 
 @Component({
   selector: 'app-modal-update-prices',
@@ -15,6 +17,8 @@ export class ModalUpdatePricesComponent implements OnInit {
   priceToUpdate: Price;
 
   priceIdToUpdate: number;
+
+  // to open updating form
   updatingPriceFormOpened = false;
 
   updatingPriceForm = this.fb.group({
@@ -24,21 +28,29 @@ export class ModalUpdatePricesComponent implements OnInit {
     amount: ['']
   });
 
-  // nouveau prix
+  // new price
   newPriceCategoryId: number;
   newPriceWeek = false;
   newPriceWeekEnd = false;
   newPriceSpecialEvent = false;
   newPriceAmount: number;
 
+  // categories available
+  pricesCategoriesAvailable: CategoryPrice[];
 
   constructor(public dialogRef: MatDialogRef<ModalUpdatePricesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private priceService: PriceService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private categoriesService: CategoryPriceService) { }
 
   ngOnInit() {
     console.log(this.data);
+
+    // get price categories
+    this.categoriesService.getAll().subscribe((data: CategoryPrice[]) => {
+      this.pricesCategoriesAvailable = data;
+    });
 
   }
 
@@ -97,6 +109,9 @@ export class ModalUpdatePricesComponent implements OnInit {
   updatePrice(id: number, price: Price) {
     this.priceService.update(id, price).subscribe();
   }
+
+
+
 
 
 }

@@ -41,26 +41,15 @@
 
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="pricesCategoriesAvailable">
 
         <mat-label>Categorie</mat-label>
 
         <mat-select formControlName="categoryPrice">
 
-            <mat-option [value]="1" (click)="categorySelected()">
-                Adulte
-            </mat-option>
-
-            <mat-option [value]="2" (click)="categorySelected()">
-                Enfant
-            </mat-option>
-
-            <mat-option [value]="3" (click)="categorySelected()">
-                Groupe
-            </mat-option>
-
-            <mat-option [value]="3" (click)="categorySelected()">
-                Ecole
+            <mat-option *ngFor="let category of pricesCategoriesAvailable" [value]="category.id"
+                (click)="categorySelected()">
+                {{category.name}}
             </mat-option>
         </mat-select>
 

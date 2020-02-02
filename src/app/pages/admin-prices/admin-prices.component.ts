@@ -5,7 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { ModalUpdatePricesComponent } from './modal-update-prices/modal-update-prices.component';
 
 // test model update Price
-export interface DialogData {
+export interface DialogPrice {
   categoryPrice: number;
   week: boolean;
   weekEnd: boolean;
@@ -60,9 +60,8 @@ export class AdminPricesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log('result');
       console.log(result);
-      this.priceReceivedToUpdate = result;
-
     });
   }
 
