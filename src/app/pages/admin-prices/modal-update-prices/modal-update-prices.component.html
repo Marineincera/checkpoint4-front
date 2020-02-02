@@ -1,16 +1,28 @@
-<div [hidden]="updatingPriceFormOpened || inputNewCategoryOpened || deleteCategoryOpened">
+<div>
+    <button mat-button (click)="openNewCategoryInput()"> Ajouter une catégorie de prix</button>
+    <button mat-button (click)="openDeleteCategorySelect()"> Supprimer une catégorie de prix</button>
+
+    <button mat-button (click)="openUpdatingInput()"> Modifier un prix</button>
+
+    <button mat-button (click)="openCreationPriceForm()"> Créer un nouveau prix</button>
+    <button mat-button (click)="openDeletePriceInput()"> Supprimer un prix </button>
+
+</div>
+
+
+<!-- To open updating form with id  -->
+
+<div *ngIf="updatingInput">
     <mat-form-field>
         <input matInput placeholder="Id du prix à modifier" type="number" [(ngModel)]="priceIdToUpdate">
     </mat-form-field>
 
     <button mat-button (click)="openUpdatingForm(priceIdToUpdate)"> Sélectionner </button>
-
-    <button mat-button (click)="openNewCategoryInput()"> Ajouter une catégorie de prix</button>
-    <button mat-button (click)="openDeleteCategorySelect()"> Supprimer une catégorie de prix</button>
-
 </div>
 
 
+
+<!-- Updating && creating Form -->
 
 <form [formGroup]="updatingPriceForm" (ngSubmit)="onSubmit()" class="price-creation-form"
     *ngIf="updatingPriceFormOpened" [hidden]="inputNewCategoryOpened">
@@ -58,10 +70,16 @@
 
     </mat-form-field>
 
-    <button mat-button [mat-dialog-close] [hidden]="inputNewCategoryOpened"> Modifier ce prix </button>
-
-
+    <button mat-button *ngIf="!creationForm" [hidden]="inputNewCategoryOpened"> Modifier ce prix </button>
 </form>
+
+<!-- creating price submit button  -->
+
+<button mat-button *ngIf="creationForm" (click)="createANewPrice()"> Créer</button>
+
+
+
+<!-- Create new category -->
 
 <div class="form-cases" *ngIf="inputNewCategoryOpened">
     <mat-form-field>
@@ -70,6 +88,8 @@
     <button mat-button (click)="addNewCategory()"> Valider </button>
 </div>
 
+
+<!-- Delete Category -->
 
 <div *ngIf="deleteCategoryOpened">
 

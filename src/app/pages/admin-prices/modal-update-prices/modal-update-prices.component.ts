@@ -20,6 +20,7 @@ export class ModalUpdatePricesComponent implements OnInit {
 
   // to open updating form
   updatingPriceFormOpened = false;
+  updatingInput = false;
 
   updatingPriceForm = this.fb.group({
     id: [''],
@@ -46,6 +47,11 @@ export class ModalUpdatePricesComponent implements OnInit {
   categoryToDelete: CategoryPrice;
   deleteCategoryOpened = false;
 
+
+  // create new price
+  creationForm = false;
+
+
   constructor(public dialogRef: MatDialogRef<ModalUpdatePricesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private priceService: PriceService,
@@ -64,6 +70,12 @@ export class ModalUpdatePricesComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  // update PRICE
+
+  openUpdatingInput() {
+    this.updatingInput = true;
   }
 
 
@@ -117,13 +129,13 @@ export class ModalUpdatePricesComponent implements OnInit {
   updatePrice(id: number, price: Price) {
     this.priceService.update(id, price).subscribe((data) => {
       if (data) {
-        this.dialogRef.close();
+        // this.dialogRef.close();
       }
     });
   }
 
 
-  // add a new category
+  // add a new CATEGORY
 
   openNewCategoryInput() {
     this.inputNewCategoryOpened = true;
@@ -141,7 +153,7 @@ export class ModalUpdatePricesComponent implements OnInit {
   }
 
 
-  // Delete a category
+  // Delete a CATEGORY
 
   openDeleteCategorySelect() {
     this.deleteCategoryOpened = true;
@@ -155,5 +167,30 @@ export class ModalUpdatePricesComponent implements OnInit {
 
     }
   }
+
+
+  // create a new PRICE
+  openCreationPriceForm() {
+    this.updatingPriceFormOpened = true;
+    this.creationForm = true;
+  }
+
+  createANewPrice() {
+    const newPrice = {
+      amount: this.updatingPriceForm.value.amount,
+      week: this.newPriceWeek,
+      weekEnd: this.newPriceWeekEnd,
+      specialEvent: this.newPriceSpecialEvent,
+      categoryPrice: this.newPriceCategoryId
+    };
+    console.log(newPrice);
+    this.priceService.postPrice(newPrice).subscribe((data) => {
+      this.creationForm = false;
+      this.updatingPriceFormOpened = false;
+    });
+
+  }
+
+  // DELETE A PRICE
 
 }
