@@ -51,6 +51,10 @@ export class ModalUpdatePricesComponent implements OnInit {
   // create new price
   creationForm = false;
 
+  // delete a price
+  deleteInput = false;
+  priceIdToDelete: number;
+
 
   constructor(public dialogRef: MatDialogRef<ModalUpdatePricesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -128,9 +132,8 @@ export class ModalUpdatePricesComponent implements OnInit {
 
   updatePrice(id: number, price: Price) {
     this.priceService.update(id, price).subscribe((data) => {
-      if (data) {
-        // this.dialogRef.close();
-      }
+      this.updatingPriceFormOpened = false;
+      this.updatingInput = false;
     });
   }
 
@@ -192,5 +195,14 @@ export class ModalUpdatePricesComponent implements OnInit {
   }
 
   // DELETE A PRICE
+  openDeletePriceInput() {
+    this.deleteInput = true;
+  }
+
+  deletePrice(id) {
+    this.priceService.delete(id).subscribe();
+    this.deleteInput = false;
+
+  }
 
 }

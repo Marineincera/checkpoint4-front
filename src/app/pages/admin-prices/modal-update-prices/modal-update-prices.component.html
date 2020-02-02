@@ -103,3 +103,12 @@
 
     <button mat-button (click)="deleteCategory()"> Supprimer</button>
 </div>
+
+
+<div *ngIf="deleteInput">
+    <mat-form-field>
+        <input matInput placeholder="Id du prix à supprimer" type="number" [(ngModel)]="priceIdToDelete">
+    </mat-form-field>
+
+    <button mat-button (click)="deletePrice(priceIdToDelete)"> Supprimer ce prix </button>
+</div>

@@ -1,4 +1,3 @@
-<p>admin-prices works!</p>
 <table mat-table [dataSource]="prices" class="mat-elevation-z1">
 
     <ng-container matColumnDef="id">
@@ -36,4 +35,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<button mat-button (click)="openDialog()"> Modifier un prix</button>
+<button mat-button (click)="openDialog()"> Gérer les prix</button>
