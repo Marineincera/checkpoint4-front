@@ -5,6 +5,7 @@ import { PlaceService } from '../../../shared/services/place.service';
 import { UserService } from '../../../shared/services/user.service';
 import { RepresentationService } from '../../../shared/services/representation.service';
 import { Representation } from '../../../shared/models/representation';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-place',
@@ -27,7 +28,12 @@ export class CreationPlaceComponent implements OnInit {
 
   });
 
-  constructor(private fb: FormBuilder, private placeService: PlaceService, private userService: UserService, private representationService: RepresentationService) { }
+  constructor(private fb: FormBuilder,
+    private placeService: PlaceService,
+    private userService: UserService,
+    private representationService: RepresentationService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -47,6 +53,7 @@ export class CreationPlaceComponent implements OnInit {
       this.postRepresentations(this.placeCreationForm.value.representation2, this.placeToCreateId);
       this.postRepresentations(this.placeCreationForm.value.representation3, this.placeToCreateId);
     });
+    this.router.navigate(['/infos/']);
 
   }
 

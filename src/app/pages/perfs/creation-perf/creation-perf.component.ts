@@ -16,8 +16,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CreationPerfComponent implements OnInit {
 
-
-
   perfToCreate: Performance;
   typesOfPerf: CategoryPerformance[];
   typeNewPerf: number;
@@ -62,6 +60,8 @@ export class CreationPerfComponent implements OnInit {
     this.perfService.postPerformance(this.perfToCreate).subscribe((data: Performance) => {
       this.router.navigate(['/performance/' + data.id]);
     });
+
+
   }
 
 }
