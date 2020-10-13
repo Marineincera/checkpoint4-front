@@ -1,4 +1,4 @@
-# Checkpoint4Front
+# Wild Circus - WCS Checkpoint 4 - January 2020
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 This project was created in two days for a Wild Code School exercice.  
