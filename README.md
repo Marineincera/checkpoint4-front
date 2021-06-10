@@ -1,7 +1,21 @@
-# Wild Circus - WCS Checkpoint 4 - January 2020
+# WildCircus 
+
+### Création d'une application web responsive sur le thème du cirque.
+### Exemples de fonctionnalités développées :
+- Connexion au compte admin.
+- Ajout, modification et suppression des performances, des prix et des catégories de prix.
+- Ajout, modification et suppression d'un lieu de visite et des ses heures de représentation.
+Projet solo
+Durée du projet : 60h environ
+
+
+### Wild Circus - WCS Checkpoint 4 - January 2020
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 This project was created in two days for a Wild Code School exercice.  
+
+-------------
+
 
 ## Development server
 
